@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xp:view xmlns:xp="http://www.ibm.com/xsp/core"
+	dojoParseOnLoad="true">
+	<xp:this.data>
+		<xp:dominoView var="skipRadical2" viewName="SkipRadical2"></xp:dominoView>
+	</xp:this.data>
+	<xp:this.resources>
+		<xp:script src="/radicalSearchJS.jss" clientSide="false"></xp:script>
+		<xp:styleSheet href="/repeatview.css"></xp:styleSheet>
+	</xp:this.resources>
+
+
+	<xp:div styleClass="lotusMenu">
+		<xp:div styleClass="lotusBottomCorner">
+			<xp:div styleClass="lotusInner">
+				<h3>Kanji Search (Skip)</h3>
+				<xp:panel id="kanjiSearchPanel">
+					<table>
+						<tr>
+							<td>
+								<xp:label id="labelSRSkip" value="Skipcode" for="skipCode"></xp:label>
+							</td>
+							<td>
+								<xp:label id="labelSRRadical" value="Radical" for="SRradical"></xp:label>
+							</td>
+							<td></td>
+						</tr>
+						<tr>
+							<td>
+								<xp:inputText id="skipCode"
+									style="width:70px" value="#{sessionScope.skipCode}">
+									<xp:typeAhead mode="partial"
+										minChars="2">
+										<xp:this.valueList><![CDATA[#{javascript:@DbColumn("","SkipRadical2",1)}]]></xp:this.valueList>
+									</xp:typeAhead>
+									<xp:eventHandler event="onchange"
+										submit="true" refreshMode="full"
+										refreshId="kanjiSearchPanel">
+									</xp:eventHandler>
+								</xp:inputText>
+							</td>
+							<td>
+								<xp:comboBox id="SRradical"
+									value="#{sessionScope.SRradical}"
+									style="font-family:Code2000Rad">
+									<xp:selectItems id="radicalList">
+										<xp:this.value><![CDATA[#{javascript:
+										if(sessionScope.containsKey("skipCode") && sessionScope.get("skipCode")!=""){
+										getRadicalBySkip(sessionScope.skipCode)
+										} 
+										}]]>
+										</xp:this.value>
+									</xp:selectItems>
+								</xp:comboBox>
+							</td>
+							<td>
+								<xp:button
+									styleClass="lotusBtn lotusBtnSpecial" id="SRButtonID">
+									<xp:this.value><![CDATA[>]]></xp:this.value>
+									<xp:eventHandler event="onclick"
+										submit="true" save="false" refreshMode="complete"
+										id="SRButtonEventHandler">
+										<xp:this.action><![CDATA[#{javascript:
+							var qs=buildSRQueryString(sessionScope.skipCode,sessionScope.SRradical);
+							if(qs!=null){
+								sessionScope.put("searchType","SkipRadicalSearch");
+								print(qs);
+								sessionScope.put("queryString",qs);
+								}
+							}]]></xp:this.action>
+										<xp:this.script><![CDATA[
+							document.body.style.cursor='wait';
+							document.getElementById('#{id:viewLoadingPanel}').style.display='';
+							document.getElementById('#{id:viewPanel}').style.display='none';
+							]]></xp:this.script>
+										<xp:this.onComplete><![CDATA[
+							document.body.style.cursor='pointer';
+							document.getElementById('#{id:viewLoadingPanel}').style.display='none';
+							document.getElementById('#{id:viewPanel}').style.display='';
+						]]></xp:this.onComplete>
+									</xp:eventHandler>
+								</xp:button>
+							</td>
+						</tr>
+					</table>
+				</xp:panel>
+			</xp:div>
+		</xp:div>
+	</xp:div>
+</xp:view>

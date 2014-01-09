@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xp:view xmlns:xp="http://www.ibm.com/xsp/core"
+	rendered="#{javascript:sessionScope.searchType=='SkipRadicalSearch';}">
+	<xp:this.data>
+		<xp:dominoView var="SRkanjiSource" viewName="SkipRadical2">
+			<xp:this.search><![CDATA[#{javascript:sessionScope.get("queryString")}]]></xp:this.search>
+		</xp:dominoView>
+	</xp:this.data>
+	<xp:table themeId="HtmlTable.view">
+		<xp:repeat id="SRrepeat" rows="#{javascript:sessionScope.rowsShown}"  var="SRRow" value="#{SRkanjiSource}">
+			<xp:tr id="SR1" themeId="HtmlTr.view">
+				<xp:td themeId="HtmlTd.view">
+					<xp:text escape="false" style="font-size:20pt">
+						<xp:this.value>
+							<![CDATA[#{javascript:@Implode(SRRow.getColumnValue('literal'),'<br>')}]]>
+						</xp:this.value>
+					</xp:text>
+				</xp:td>
+				<xp:td themeId="HtmlTd.view">
+					<xp:text escape="false">
+						<xp:this.value>
+							<![CDATA[#{javascript:@Implode(SRRow.getColumnValue('ja_on'),'<br>')}]]>
+						</xp:this.value>
+					</xp:text>
+				</xp:td>
+				<xp:td themeId="HtmlTd.view">
+					<xp:text escape="false">
+						<xp:this.value>
+							<![CDATA[#{javascript:@Implode(SRRow.getColumnValue('ja_kun'),'<br>')}]]>
+						</xp:this.value>
+					</xp:text>
+				</xp:td>
+				<xp:td themeId="HtmlTd.view">
+					<xp:text escape="false" > 
+						<xp:this.value>
+							<![CDATA[#{javascript:@Implode(SRRow.getColumnValue('meaning'),'<br>')}]]>
+						</xp:this.value>
+					</xp:text>
+				</xp:td>
+				<xp:eventHandler event="onclick" submit="true"
+					refreshMode="complete" immediate="true">
+					<xp:this.action><![CDATA[#{javascript:
+					sessionScope.remove("entryID");
+					sessionScope.remove("nameID");
+					sessionScope.charID=@Right(SRRow.getColumnValue('noteid'),8);}]]></xp:this.action>
+					<xp:this.script><![CDATA[
+							document.body.style.cursor='wait';
+							document.getElementById('#{id:loadingPanel}').style.display='';
+							document.getElementById('#{id:EntryDisplay}').style.display='none';
+						]]></xp:this.script>
+					<xp:this.onComplete><![CDATA[
+							document.body.style.cursor='pointer';
+							document.getElementById('#{id:loadingPanel}').style.display='none';
+							document.getElementById('#{id:EntryDisplay}').style.display='block';
+						]]></xp:this.onComplete>
+				</xp:eventHandler>
+			</xp:tr>
+		</xp:repeat>
+	</xp:table>
+</xp:view>

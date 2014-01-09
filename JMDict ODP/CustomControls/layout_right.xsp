@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xp:view xmlns:xp="http://www.ibm.com/xsp/core" xmlns:xc="http://www.ibm.com/xsp/custom">
+	<xp:div styleClass="lotusColRight">
+		<xp:table style="visibility:hidden;">
+			<xp:tr>
+				<td>
+					<h3></h3>
+				</td>
+			</xp:tr>
+		</xp:table>
+		<xp:panel id="loadingPanel"
+			style="display:none;background-image:url(ajax-loader.gif);background-repeat: no-repeat;
+background-position: center;">
+			<br />
+			<br />
+			<br />
+			<br />
+			<xp:div style="text-align:center;font-weight:bold">
+				Please wait...
+
+						</xp:div>
+			<br />
+			<br />
+		</xp:panel>
+
+
+		<xp:div id="EntryDisplay">
+			<xc:WordDisplay>
+				<xc:this.rendered><![CDATA[#{javascript:sessionScope.containsKey('entryID')}]]></xc:this.rendered>
+			</xc:WordDisplay>
+			<xc:NameDisplay>
+				<xc:this.rendered><![CDATA[#{javascript:sessionScope.containsKey('nameID')}]]></xc:this.rendered>
+			</xc:NameDisplay>
+			<xc:CharacterDisplay>
+				<xc:this.rendered><![CDATA[#{javascript:sessionScope.containsKey('charID')}]]></xc:this.rendered>
+			</xc:CharacterDisplay>
+			
+		</xp:div>
+	</xp:div>
+</xp:view>

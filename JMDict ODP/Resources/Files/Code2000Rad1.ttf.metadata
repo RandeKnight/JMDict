@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?><note class="form" maintenanceversion="1.0" replicaid="80257C5B005F130C" version="9.0" xmlns="http://www.lotus.com/dxl">
+<noteinfo noteid="3fe" sequence="4" unid="F41DFD7997A7A82F802577F4003057A5">
+<created><datetime>20101209T084801,65+00</datetime></created>
+<modified><datetime>20140109T171835,27+00</datetime></modified>
+<revised><datetime>20101209T084801,69+00</datetime></revised>
+<lastaccessed><datetime>20140109T171835,27+00</datetime></lastaccessed>
+<addedtofile><datetime>20140109T171835,27+00</datetime></addedtofile></noteinfo>
+<updatedby><name>CN=Atom7 Contractor/O=IOPP</name></updatedby>
+<wassignedby><name>CN=Atom7 Contractor/O=IOPP</name></wassignedby>
+<item name="$TITLE"><text>Code2000Rad1.ttf</text></item>
+<item name="$Flags"><text>345CgQ</text></item>
+<item name="$FlagsExt"><text>D</text></item>
+
+<item name="$FileModDT" sign="true"><datetime>20101205T110524,00+00</datetime></item>
+
+
+
+
+<item name="$FileNames" sign="true"><text>Code2000Rad1.ttf</text></item>
+<item name="$DesignerVersion"><text>8.5</text></item></note>

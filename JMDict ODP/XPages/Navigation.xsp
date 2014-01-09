@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xp:view xmlns:xp="http://www.ibm.com/xsp/core">
+	<xp:tabbedPanel id="tabbedPanel1">
+				<xp:tabPanel label="All Words" id="tabPanel1">
+			Search :
+			<xp:inputText id="inputText1"
+				value="#{requestScope.searchTerm}">
+			</xp:inputText>
+			<xp:br id="br1"></xp:br>
+			<xp:text escape="true" id="computedField1">
+				<xp:this.value><![CDATA[#{javascript:"Query = "+ requestScope.searchTerm}]]></xp:this.value>
+			</xp:text>
+			<xp:br id="br2"></xp:br>
+			<xp:button value="Search" id="button1">
+				<xp:eventHandler event="onclick" submit="true"
+					refreshMode="complete" immediate="false" save="true" id="eventHandler1">
+				</xp:eventHandler>
+			</xp:button>
+			<xp:br></xp:br>
+			<xp:br id="br3"></xp:br>
+			<xp:viewPanel rows="30" id="viewPanel1">
+				<xp:this.facets>
+					<xp:pager partialRefresh="true"
+						layout="Previous Group Next" xp:key="headerPager" id="pager1"
+						for="viewPanel1">
+					</xp:pager>
+				</xp:this.facets>
+				<xp:this.data>
+					<xp:dominoView var="kebrebrom" viewName="kebrebrom"
+						search="#{javascript:requestScope.searchTerm}">
+					</xp:dominoView>
+				</xp:this.data>
+				<xp:viewColumn columnName="kebrebrom"
+					id="viewColumn1">
+					<xp:viewColumnHeader value="kebrebrom"
+						id="viewColumnHeader1">
+					</xp:viewColumnHeader>
+				</xp:viewColumn>
+				
+				<xp:viewColumn columnName="reb" id="viewColumn3">
+					<xp:viewColumnHeader value="reb"
+						id="viewColumnHeader3">
+					</xp:viewColumnHeader>
+				</xp:viewColumn>
+				<xp:viewColumn columnName="gloss" id="viewColumn4">
+					<xp:viewColumnHeader value="gloss"
+						id="viewColumnHeader4">
+					</xp:viewColumnHeader>
+				</xp:viewColumn>
+			</xp:viewPanel>
+		</xp:tabPanel>
+		<xp:tabPanel label="All Kana" id="tabPanel2">
+			<xp:viewPanel rows="30" id="viewPanel2">
+				<xp:this.facets>
+					<xp:pager partialRefresh="true"
+						layout="Previous Group Next" xp:key="headerPager" id="pager2"
+						for="viewPanel2">
+					</xp:pager>
+				</xp:this.facets>
+				<xp:this.data>
+					<xp:dominoView var="reb" viewName="reb"></xp:dominoView>
+				</xp:this.data>
+				<xp:viewColumn columnName="reb" id="viewColumn5">
+					<xp:viewColumnHeader value="reb"
+						id="viewColumnHeader5">
+					</xp:viewColumnHeader>
+				</xp:viewColumn>
+				
+				<xp:viewColumn columnName="romaji" id="viewColumn7">
+					<xp:viewColumnHeader value="romaji"
+						id="viewColumnHeader7">
+					</xp:viewColumnHeader>
+				</xp:viewColumn>
+				<xp:viewColumn columnName="keb" id="viewColumn8">
+					<xp:viewColumnHeader value="keb"
+						id="viewColumnHeader8">
+					</xp:viewColumnHeader>
+				</xp:viewColumn>
+				<xp:viewColumn columnName="gloss" id="viewColumn9">
+					<xp:viewColumnHeader value="gloss"
+						id="viewColumnHeader9">
+					</xp:viewColumnHeader>
+				</xp:viewColumn>
+			</xp:viewPanel>
+		</xp:tabPanel>
+	</xp:tabbedPanel></xp:view>

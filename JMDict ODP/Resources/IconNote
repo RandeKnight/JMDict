@@ -1,0 +1,38 @@
+<?xml version='1.0' encoding='utf-8'?>
+<note default='true' class='icon' xmlns='http://www.lotus.com/dxl' version='9.0'
+ maintenanceversion='1.0' replicaid='80257C5B005F130C'>
+<noteinfo noteid='11e' unid='B9D8D3CAD13F3548C12573F400408F99' sequence='5'>
+<created><datetime>20080219T124510,65+01</datetime></created>
+<modified><datetime>20140109T171835,81+00</datetime></modified>
+<revised><datetime>20140109T171835,80+00</datetime></revised>
+<lastaccessed><datetime>20140109T171835,81+00</datetime></lastaccessed>
+<addedtofile><datetime>20140109T171832,05+00</datetime></addedtofile></noteinfo>
+<updatedby><name>CN=Atom7 Contractor/O=IOPP</name><name>CN=Andrew Davie/O=Tenshiki</name></updatedby>
+<item name='$DefaultFrameset' sign='true'><text>Launch</text></item>
+<item name='$DefaultWebFrameset' sign='true'><text>Search</text></item>
+<item name='$TemplateServerName' sign='true'><text>CN=Atom7 Contractor/O=IOPP</text></item>
+<item name='$TemplateFileName' sign='true'><text>D:\apps\Notes\Data\JMDictCopy.nsf</text></item>
+<item name='$TemplateModTime'><datetime>20110222T155503,27+00</datetime></item>
+<item name='$DefaultClientXPage'><text>OneUI.xsp</text></item>
+<item name='IconBitmap' summary='true'>
+<rawitemdata type='6'>
+AiAgAQAA////////////////////////////////////////////////////////////////////
+//////////////////////////////////////+G2hsP8tpKf/ra6v/62ur/+trq//qK6v/6qur/
++qrq//qq6v/6Ksr/+nIbD/////8AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAA==
+</rawitemdata></item>
+<item name='$UpdatedByLimit'><number>10</number></item>
+<item name='$FlagsNoRefresh'><text/></item>
+<item name='$RevisionsLimit'><number>10</number></item>
+<item name='$Flags'><text>Jzf?</text></item>
+<item name='$Daos'><text>0</text></item>
+<item name='$TITLE'><text>JMDict Live Template</text></item></note>
+

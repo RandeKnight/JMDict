@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xp:view xmlns:xp="http://www.ibm.com/xsp/core">
+	<xp:this.data>
+		<xp:dominoView var="searchHistoryView"
+			viewName="SearchHistory">
+		</xp:dominoView>
+	</xp:this.data>
+	<div class="lotusPlaceBar">
+		<div class="lotusBreadcrumbs" role="navigation">
+		<xp:label value="Search History: " id="labelSearchHistory"
+			for="historyList">
+		</xp:label>
+		<xp:repeat id="historyList"
+			value="#{searchHistoryView}" var="thisRow">
+			&#x25ba;
+			<xp:link id="searchHistoryRedo" style="text-decoration:none;">
+				<xp:this.text><![CDATA[#{javascript:thisRow.getColumnValues()[1]}]]></xp:this.text>
+				<xp:eventHandler event="onclick" submit="true"
+					save="false" refreshMode="complete" id="SRButtonEventHandler">
+					<xp:this.action><![CDATA[#{javascript:
+								sessionScope.remove("charID");
+								sessionScope.remove("nameID");
+								sessionScope.remove("entryID");
+								sessionScope.put("searchType",thisRow.getColumnValues()[3]);
+								sessionScope.put("queryString",thisRow.getColumnValues()[2]);
+								
+							}]]></xp:this.action>
+					<xp:this.script><![CDATA[
+							document.body.style.cursor='wait';
+							document.getElementById('#{id:viewLoadingPanel}').style.display='';
+							document.getElementById('#{id:viewPanel}').style.display='none';
+							]]></xp:this.script>
+					<xp:this.onComplete><![CDATA[
+							document.body.style.cursor='pointer';
+							document.getElementById('#{id:viewLoadingPanel}').style.display='none';
+							document.getElementById('#{id:viewPanel}').style.display='';
+						]]></xp:this.onComplete>
+				</xp:eventHandler>
+			</xp:link>
+
+		</xp:repeat>
+		</div>
+	</div>
+
+
+
+
+</xp:view>

@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?><note class="filter" maintenanceversion="1.0" replicaid="80257C5B005F130C" version="9.0" xmlns="http://www.lotus.com/dxl">
+<noteinfo noteid="39a" sequence="8" unid="8CDAA25C11D074A9802577CF00401A58">
+<created><datetime>20101102T114010,48+00</datetime></created>
+<modified><datetime>20140109T171834,77+00</datetime></modified>
+<revised><datetime>20101222T115026,35+00</datetime></revised>
+<lastaccessed><datetime>20140109T171834,77+00</datetime></lastaccessed>
+<addedtofile><datetime>20140109T171834,77+00</datetime></addedtofile></noteinfo>
+<updatedby><name>CN=Atom7 Contractor/O=IOPP</name></updatedby>
+<wassignedby><name>CN=Atom7 Contractor/O=IOPP</name></wassignedby>
+<item name="$TITLE" sign="true"><text>LoseFocusJS</text></item>
+<item name="$Flags"><text>h534Q</text></item>
+<item name="$PublicAccess" sign="true"><text>1</text></item>
+
+<item name="$POID"><datetime>20101222T115026,35+00</datetime></item></note>

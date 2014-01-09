@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xp:view xmlns:xp="http://www.ibm.com/xsp/core">
+	<div class="lotusBanner" role="banner">
+		<div class="lotusRightCorner">
+			<div class="lotusInner">
+				<div class="lotusLogo">
+					<span class="lotusAltText">Japanese Dictionary</span>
+				</div>
+				<ul class="lotusInlinelist lotusUtility">
+					<li class="lotusFirst">
+						<span class="lotusUser">
+							<xp:text escape="true"
+								id="cfUserName">
+								<xp:this.value><![CDATA[#{javascript:@Name('[CN]',@UserName(0))}]]></xp:this.value>
+							</xp:text>
+						</span>
+					</li>
+					<li>
+						<a href="javascript:;">Help</a>
+					</li>
+					<li>
+						<a href="javascript:;">Logout</a>
+					</li>
+				</ul>
+			</div>
+		</div>
+	</div><!--end lotusBanner-->
+</xp:view>

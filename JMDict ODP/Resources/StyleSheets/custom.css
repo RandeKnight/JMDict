@@ -1,0 +1,17 @@
+/* view table body*/
+.xspHtmlTableView{border:0px none;width:100%;clear:both;}
+.xspHtmlTrView:hover{background-color:#edfee1;}
+.xspHtmlTdView{border-top-color:#e5e5e5;border-top-style:solid;border-top-width:1px;padding:5px 2px;vertical-align:top;}
+
+/* header pager */
+.xspPagerContainerViewHeader{float:right;background-color:#ffffff;border-collapse:collapse;width:100%;position:relative;}
+.xspPagerViewHeader{float:right;margin-top:.2em;padding:2px 5px;height:2em;line-height:2em;clear:both;text-align:center;font-weight:normal;font-size:1em;color:#848484;background-color:#ffffff;}
+.xspPagerNavViewHeader{text-align:left;float:left;padding-left:5px;color:#848484;}
+
+/* footer pager */
+.xspPagerContainerViewFooter{float:right;background-color:inherit;border-collapse:collapse;width:100%;position:relative;}
+.xspPagerViewFooter{float:right;margin-top:.2em;padding:2px 5px;height:2em;line-height:2em;clear:both;text-align:center;font-weight:normal;font-size:1em;color:#848484;background-color:inherit;}
+.xspPagerNavViewFooter{text-align:left;float:left;padding-left:5px;color:#848484;}
+
+/* plain links */
+.plainlink {text-decoration:none;}

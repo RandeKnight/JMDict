@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xp:view xmlns:xp="http://www.ibm.com/xsp/core"
+	rendered="#{javascript:sessionScope.searchType=='WordSearch';}">
+	<xp:this.resources>
+		<xp:script src="/BuildQueryStringJS.jss" clientSide="false"></xp:script>
+		<xp:styleSheet href="/repeatview.css"></xp:styleSheet>
+	</xp:this.resources>
+	<xp:this.data>
+		<xp:dominoView var="wordSource" viewName="wordSearch">
+			<xp:this.search><![CDATA[#{javascript:sessionScope.get("queryString")}]]></xp:this.search>
+		</xp:dominoView>
+	</xp:this.data>
+	<xp:div id="wordView">
+		<xp:div id="flySearch">
+			Search for :
+			<xp:inputText id="flySearchTextField" value="#{sessionScope.wordSearchContains1}"></xp:inputText>
+			<xp:button value="Search" id="button2" type="submit"
+				styleClass="lotusBtn lotusBtnSpecial" refreshMode="complete">
+				<xp:eventHandler event="onclick" submit="true"
+					refreshMode="complete" save="false" id="eventHandler1">
+					<xp:this.action><![CDATA[#{javascript:
+							var qs = buildQueryString(
+								null,
+								sessionScope.wordSearchContains1,
+								null,
+								null);
+							sessionScope.put("searchType","WordSearch");
+							sessionScope.put("queryString",qs);
+							;}]]></xp:this.action>
+				</xp:eventHandler>
+			</xp:button>
+		</xp:div>
+		<xp:table id="table1" themeId="HtmlTable.view">
+			<xp:repeat id="WSRepeat" var="thisRow" value="#{wordSource}" rows="#{javascript:sessionScope.rowsShown}" >
+				<xp:tr themeId="HtmlTr.view"
+					rendered="#{javascript:
+				filter(thisRow.getColumnValue('keb'),
+											thisRow.getColumnValue('reb'),
+											thisRow.getColumnValue('rebRomaji'),
+											sessionScope.wordSearchBegins,
+											sessionScope.wordSearchEnds)!=true}"
+					id="WRTR">
+
+					<xp:td themeId="HtmlTd.view">
+						<xp:text escape="false" style="font-size:20pt">
+							<xp:this.value>
+								<![CDATA[#{javascript:@Implode(thisRow.getColumnValue('keb'),'<br>')}]]>
+							</xp:this.value>
+						</xp:text>
+					</xp:td>
+					<xp:td themeId="HtmlTd.view">
+						<xp:text escape="false">
+							<xp:this.value>
+								<![CDATA[#{javascript:@Implode(thisRow.getColumnValue('reb'),'<br>')}]]>
+							</xp:this.value>
+						</xp:text>
+					</xp:td>
+					<xp:td themeId="HtmlTd.view">
+						<xp:text escape="false">
+							<xp:this.value>
+								<![CDATA[#{javascript:@Implode(thisRow.getColumnValue('gloss'),'<br>')}]]>
+							</xp:this.value>
+						</xp:text>
+					</xp:td>
+					<xp:eventHandler event="onclick" submit="true"
+						refreshMode="complete" immediate="true">
+						<xp:this.action><![CDATA[#{javascript:sessionScope.entryID=@Right(thisRow.getColumnValue('NoteId'),8);}]]>
+						</xp:this.action>
+						<xp:this.script><![CDATA[
+							document.body.style.cursor='wait';
+							document.getElementById('#{id:loadingPanel}').style.display='';
+							document.getElementById('#{id:EntryDisplay}').style.display='none';
+						]]></xp:this.script>
+						<xp:this.onComplete><![CDATA[
+							document.body.style.cursor='pointer';
+							document.getElementById('#{id:loadingPanel}').style.display='none';
+							document.getElementById('#{id:EntryDisplay}').style.display='block';
+						]]></xp:this.onComplete>
+
+					</xp:eventHandler>
+				</xp:tr>
+			</xp:repeat>
+		</xp:table>
+		<xp:eventHandler event="onmouseover" submit="false">
+			<xp:this.script><![CDATA[XSP.getElementById("#{id:flySearchTextField}").focus();]]></xp:this.script>
+		</xp:eventHandler>
+	</xp:div>
+</xp:view>

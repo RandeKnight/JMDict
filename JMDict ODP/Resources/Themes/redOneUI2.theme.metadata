@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?><note class="form" maintenanceversion="1.0" replicaid="80257C5B005F130C" version="9.0" xmlns="http://www.lotus.com/dxl">
+<noteinfo noteid="3b2" sequence="6" unid="6A5226D91DACC206802577D90048332A">
+<created><datetime>20101112T130836,90+00</datetime></created>
+<modified><datetime>20140109T171834,89+00</datetime></modified>
+<revised><datetime>20101112T130839,72+00</datetime></revised>
+<lastaccessed><datetime>20140109T171834,89+00</datetime></lastaccessed>
+<addedtofile><datetime>20140109T171834,89+00</datetime></addedtofile></noteinfo>
+<updatedby><name>CN=Steve Castledine/OU=Leicester/O=Edia</name><name>CN=Steve Castledine/OU=UK/O=IBM</name><name>CN=Atom7 Contractor/O=IOPP</name></updatedby>
+<item name="$Flags"><text>34567Cg~`</text></item>
+<item name="$TITLE" sign="true"><text>redOneUI2.theme</text></item>
+<item name="$DesignerVersion" sign="true"><text>8.5</text></item>
+
+
+<item name="$FileNames" sign="true"><text>redOneUI2.theme</text></item>
+<item name="$CSSFiles"><textlist><text>/.ibmxspres/dojoroot/dijit/themes/tundra/tundra.css</text><text>/.ibmxspres/dojoroot/ibm/domino/widget/layout/css/domino-default.css</text><text>/.ibmxspres/domino/oneuiv2/base/core.css</text><text>/.ibmxspres/domino/oneuiv2/base/coreRTL.css</text><text>/.ibmxspres/domino/oneuiv2/redTheme/redTheme.css</text><text>/.ibmxspres/domino/oneuiv2/redTheme/redThemeRTL.css</text><text>custom.css</text></textlist></item></note>

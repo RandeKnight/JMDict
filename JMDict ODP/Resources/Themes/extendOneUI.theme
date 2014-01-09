@@ -1,0 +1,221 @@
+<!--
+	The default theme contents use theme inheritance.
+
+	Application themes can extend an existing global theme using the
+	extends attribute.  Existing themes include the following options:
+
+	1. webstandard 2. oneui 3. notes
+-->
+<theme extends="oneui">
+	<!-- 
+		Use this pattern to include resources (such as style sheets
+		and JavaScript files that are used by this theme.
+	-->
+	
+	<resource>
+		<content-type>text/css</content-type>
+		<href>custom.css</href>
+	</resource>
+	
+
+	<!-- overide setting lotusForm too high -->
+	<control>
+		<name>Form</name>
+		<property>
+			<name>styleClass</name>
+			<value></value> 
+		</property>
+	</control>
+	
+	<!-- View Table -->
+	<control>
+		<name>HtmlTable.view</name>
+		<property mode="concat">
+			<name>styleClass</name>
+			<value>xspHtmlTableView</value> 
+		</property>
+		<property mode="override">
+			<name>border</name>
+			<value>0</value> 
+		</property>
+		<property mode="override">
+			<name>cellpadding</name>
+			<value>0</value> 
+		</property>
+		<property mode="override">
+			<name>cellspacing</name>
+			<value>0</value> 
+		</property>
+	</control>
+	
+	<control>
+		<name>HtmlTr.view</name>
+		<property>
+			<name>styleClass</name>
+			<value>xspHtmlTrView</value>
+		</property>
+	</control>
+	
+	<control>
+		<name>HtmlTd.view</name>
+		<property mode="concat">
+			<name>styleClass</name>
+			<value>xspHtmlTdView</value> 
+		</property>
+	</control>
+	
+	<!-- View Table Header -->
+	<control>
+		<name>HtmlTable.view.header</name>
+		<property mode="concat">
+			<name>styleClass</name>
+			<value>xspHtmlTableViewHeader</value> 
+		</property>
+		<property mode="override">
+			<name>border</name>
+			<value>0</value> 
+		</property>
+		<property mode="override">
+			<name>cellpadding</name>
+			<value>0</value> 
+		</property>
+		<property mode="override">
+			<name>cellspacing</name>
+			<value>0</value> 
+		</property>
+	</control>
+	
+	<control>
+		<name>HtmlTr.view.header</name>
+		<property>
+			<name>styleClass</name>
+			<value>xspHtmlTrViewHeader</value> 
+		</property>
+	</control>
+	
+	<control>
+		<name>HtmlTd.view.header.top</name>
+		<property mode="concat">
+			<name>styleClass</name>
+			<value>xspHtmlTdViewHeaderTop</value> 
+		</property>
+	</control>
+	
+	<control>
+		<name>HtmlTd.view.header.bottom</name>
+		<property mode="concat">
+			<name>styleClass</name>
+			<value>xspHtmlTdViewHeaderBottom</value> 
+		</property>
+	</control>
+	<!-- Pagers -->
+	
+	<control>
+		<name>Pager.view.header</name>
+		<property>
+			<name>outerStyleClass</name>
+			<value>xspPagerContainerViewHeader</value>
+		</property>
+		<property>
+			<name>styleClass</name>
+			<value>xspPagerViewHeader</value>
+		</property>
+	</control>
+	
+	<control>
+		<name>PagerControl.Pager.view.header</name>
+		<property>
+			<name>styleClass</name>
+			<value>xspPagerNavViewHeader</value>
+		</property>
+	</control>
+
+	<control>
+		<name>PagerControl.Pager.Group.view.header</name>
+		<property>
+			<name>styleClass</name>
+			<value>xspPagerNavViewHeader xspGroupViewHeader</value>
+		</property>
+		<property>
+			<name>currentStyleClass</name>
+			<value>xspCurrentItem</value>
+		</property>
+		<property>
+			<name>firstStyleClass</name>
+			<value>xspFirstItem</value>
+		</property>
+		<property>
+			<name>lastStyleClass</name>
+			<value>xspLastItem</value>
+		</property>
+	</control>
+
+	<control>
+		<name>PagerControl.Pager.Separator.view.header</name>
+		<property>
+			<name>styleClass</name>
+			<value>xspPagerNavViewHeader xspSeparator</value>
+		</property>
+	</control>
+
+	<control>
+		<name>PagerControl.Pager.Previous.view.header</name>
+		<property>
+			<name>styleClass</name>
+			<value>xspPagerNavViewHeader xspPreviousViewHeader</value>
+		</property>
+	</control>
+
+	<control>
+		<name>PagerControl.Pager.Next.view.header</name>
+		<property>
+			<name>styleClass</name>
+			<value>xspPagerNavViewHeader xspNextViewHeader</value>
+		</property>
+	</control>
+	
+	<control>
+		<name>Pager.view.footer</name>
+		<property>
+			<name>outerStyleClass</name>
+			<value>xspPagerContainerViewFooter</value>
+		</property>
+		<property>
+			<name>styleClass</name>
+			<value>xspPagerViewFooter</value>
+		</property>
+	</control>
+	
+	<control>
+		<name>PagerControl.Pager.view.footer</name>
+		<property>
+			<name>styleClass</name>
+			<value>xspPagerNavViewFooter</value>
+		</property>
+	</control>
+
+	<control>
+		<name>PagerControl.Pager.Separator.view.footer</name>
+		<property>
+			<name>styleClass</name>
+			<value>xspPagerNavViewFooter xspSeparator</value>
+		</property>
+	</control>
+
+	<control>
+		<name>PagerControl.Pager.Previous.view.footer</name>
+		<property>
+			<name>styleClass</name>
+			<value>xspPagerNavViewFooter xspPreviousViewFooter</value>
+		</property>
+	</control>
+
+	<control>
+		<name>PagerControl.Pager.Next.view.footer</name>
+		<property>
+			<name>styleClass</name>
+			<value>xspPagerNavViewFooter xspNextViewFooter</value>
+		</property>
+	</control>
+	
+</theme>

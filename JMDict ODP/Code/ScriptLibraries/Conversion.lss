@@ -1,0 +1,308 @@
+'++LotusScript Development Environment:2:5:(Options):0:74
+Option Public
+
+'++LotusScript Development Environment:2:5:(Forward):0:1
+Declare Sub Initialize
+Declare Function ConvertToRomaji(chars As String) As String
+Declare Function reverseString(orig As String) As String
+Declare Function chartype(char As String) As String
+
+'++LotusScript Development Environment:2:5:(Declarations):0:2
+
+'++LotusScript Development Environment:2:2:Initialize:1:10
+Sub Initialize
+	
+End Sub
+
+'++LotusScript Development Environment:2:1:ConvertToRomaji:1:8
+Function ConvertToRomaji(chars As String) As String
+	Dim out As String
+	For n=1 To Len(chars)
+		Select Case Mid$(chars,n,2)
+		Case "きゃ": out = out +  "kya"
+		Case "きゅ": out = out +  "kyu"
+		Case "きょ": out = out +  "kyo"
+		Case "しゃ": out = out +  "sha"
+		Case "しゅ": out = out +  "shu"
+		Case "しょ": out = out +  "sho"
+		Case "ちゃ": out = out +  "cha"
+		Case "ちゅ": out = out +  "chu"
+		Case "ちょ": out = out +  "cho"
+		Case "にゃ": out = out +  "nya"
+		Case "にゅ": out = out +  "nyu"
+		Case "にょ": out = out +  "nyo"
+		Case "ひゃ": out = out +  "hya"
+		Case "ひゅ": out = out +  "hyu" 
+		Case "ひょ": out = out +  "hyo"
+		Case "みゃ": out = out +  "mya"
+		Case "みゅ": out = out +  "myu"
+		Case "みょ": out = out +  "myo"
+		Case "りゃ": out = out +  "rya"
+		Case "りゅ": out = out +  "ryu"
+		Case "りょ": out = out +  "ryo"
+		Case "ぎゃ": out = out +  "gya"
+		Case "ぎゅ": out = out +  "gyu"
+		Case "ぎょ": out = out +  "gyo"
+		Case "じゃ": out = out +  "ja"
+		Case "じゅ": out = out +  "ju"
+		Case "じょ": out = out +  "jo"
+		Case "びゃ": out = out +  "bya"
+		Case "びゅ": out = out +  "byu"
+		Case "びょ": out = out +  "byo"
+		Case "ぴゃ": out = out +  "pya"
+		Case "ぴゅ": out = out +  "pyu"
+		Case "ぴょ": out = out +  "pyo"
+		Case "キャ":out=out + "KYA"
+		Case "キュ":out=out + "KYU"
+		Case "キョ":out=out + "KYO"
+		Case "シャ":out=out + "SHA"
+		Case "シュ":out=out + "SHU"
+		Case "ショ":out=out + "SHO"
+		Case "チャ":out=out + "CHA"
+		Case "チュ":out=out + "CHU"
+		Case "チョ":out=out + "CHO"
+		Case "ニャ":out=out + "NYA"
+		Case "ニュ":out=out + "NYU"
+		Case "ニョ":out=out + "NYO"
+		Case "ヒャ":out=out + "HYA"
+		Case "ヒュ":out=out + "HYU"
+		Case "ヒョ":out=out + "HYO"
+		Case "ミャ":out=out + "MYA"
+		Case "ミュ":out=out + "MYU"
+		Case "ミョ":out=out + "MYO"
+		Case "リャ":out=out + "RYA"
+		Case "リュ":out=out + "RYU"
+		Case "リョ":out=out + "RYO"
+		Case "ギャ":out=out + "GYA"
+		Case "ギュ":out=out + "GYU"
+		Case "ギョ":out=out + "GYO"
+		Case "ジャ":out=out + "JA"
+		Case "ジュ":out=out + "JU"
+		Case "ジョ":out=out + "JO"
+		Case "ビャ":out=out + "BYA"
+		Case "ビュ":out=out + "BYU"
+		Case "ビョ":out=out + "BYO"
+		Case "ピャ":out=out + "PYA"
+		Case "ピュ":out=out + "PYU"
+		Case "ピョ":out=out + "PYO"		
+			'list of non-standard
+		Case "ヴァ":out=out + "VA"
+		Case "ヴァ":out=out + "VA"
+		Case "ヴィ":out=out + "VI"
+		Case "ヴェ":out=out + "VE"
+		Case "ヴォ":out=out + "VO"
+		Case "グァ":out=out + "GUA"
+		Case "テァ":out=out + "TEA"
+		Case "ファ":out=out + "FAA"
+		Case "ディ":out=out + "DII"
+		Case "ウィ":out=out + "WII"
+		Case "フィ":out=out + "FI"
+		Case "ジィ":out=out + "JII"
+		Case "ウェ":out=out + "WE"
+		Case "フェ":out=out + "FE"
+		Case "ジェ":out=out + "JE"
+		Case "ウォ":out=out + "WO"
+		Case "フォ":out=out + "FO"
+			
+		Case Else:
+			Select Case Mid$(chars,n,1)
+			Case "あ": out = out +  "a"
+			Case "い": out = out +  "i"
+			Case "う": out = out +  "u"
+			Case "え": out = out +  "e"
+			Case "お": out = out +  "o"
+			Case "か": out = out +  "ka"
+			Case "き": out = out +  "ki"
+			Case "く": out = out +  "ku"
+			Case "け": out = out +  "ke"
+			Case "こ": out = out +  "ko"
+			Case "さ": out = out +  "sa"
+			Case "し": out = out +  "shi"
+			Case "す": out = out +  "su"
+			Case "せ": out = out +  "se"
+			Case "そ": out = out +  "so"
+			Case "た": out = out +  "ta"
+			Case "ち": out = out +  "chi"
+			Case "つ": out = out +  "tsu"
+			Case "て": out = out +  "te"
+			Case "と": out = out +  "to"
+			Case "な": out = out +  "na"
+			Case "に": out = out +  "ni"
+			Case "ぬ": out = out +  "nu"
+			Case "ね": out = out +  "ne"
+			Case "の": out = out +  "no"
+			Case "は": out = out +  "ha"
+			Case "ひ": out = out +  "hi"
+			Case "ふ": out = out +  "fu"
+			Case "へ": out = out +  "he"
+			Case "ほ": out = out +  "ho"
+			Case "ま": out = out +  "ma"
+			Case "み": out = out +  "mi"
+			Case "む": out = out +  "mu"
+			Case "め": out = out +  "me"
+			Case "も": out = out +  "mo"
+			Case "や": out = out +  "ya"
+			Case "ゆ": out = out +  "yu"
+			Case "よ": out = out +  "yo"
+			Case "ら": out = out +  "ra"
+			Case "り": out = out +  "ri"
+			Case "る": out = out +  "ru"
+			Case "れ": out = out +  "re"
+			Case "ろ": out = out +  "ro"
+			Case "わ": out = out +  "wa"
+			Case "を": out = out +  "wo"
+			Case "が": out = out +  "ga"
+			Case "ぎ": out = out +  "gi"
+			Case "ぐ": out = out +  "gu"
+			Case "げ": out = out +  "ge"
+			Case "ご": out = out +  "go"
+			Case "ざ": out = out +  "za"
+			Case "じ": out = out +  "ji"
+			Case "ず": out = out +  "zu"
+			Case "ぜ": out = out +  "ze"
+			Case "ぞ": out = out +  "zo"
+			Case "だ": out = out +  "da"
+			Case "ぢ": out = out +  "di"
+			Case "づ": out = out +  "du"
+			Case "で": out = out +  "de"
+			Case "ど": out = out +  "do"
+			Case "ば": out = out +  "ba"
+			Case "び": out = out +  "bi"
+			Case "ぶ": out = out +  "bu"
+			Case "べ": out = out +  "be"
+			Case "ぼ": out = out +  "bo"
+			Case "ぱ": out = out +  "pa"
+			Case "ぴ": out = out +  "pi"
+			Case "ぷ": out = out +  "pu"
+			Case "ぺ": out = out +  "pe"
+			Case "ぽ": out = out +  "po"
+			Case "ん": out = out + "n"
+			Case "ゐ": out = out + "wi"
+			Case "ゑ": out = out + "we"
+			Case "ア":out = out + "A"
+			Case "イ":out = out + "I"
+			Case "ウ":out = out + "U"
+			Case "エ":out = out + "E"
+			Case "オ":out = out + "O"
+			Case "カ":out = out + "KA"
+			Case "キ":out = out + "KI"
+			Case "ク":out = out + "KU"
+			Case "ケ":out = out + "KE"
+			Case "コ":out = out + "KO"
+			Case "サ":out = out + "SA"
+			Case "シ":out = out + "SHI"
+			Case "ス":out = out + "SU"
+			Case "セ":out = out + "SE"
+			Case "ソ":out = out + "SO"
+			Case "タ":out = out + "TA"
+			Case "チ":out = out + "CHI"
+			Case "ツ":out = out + "TU"
+			Case "テ":out = out + "TE"
+			Case "ト":out = out + "TO"
+			Case "ナ":out = out + "NA"
+			Case "ニ":out = out + "NI"
+			Case "ヌ":out = out + "NU"
+			Case "ネ":out = out + "NE"
+			Case "ノ":out = out + "NO"
+			Case "ハ":out = out + "HA"
+			Case "ヒ":out = out + "HI"
+			Case "フ":out = out + "FU"
+			Case "ヘ":out = out + "HE"
+			Case "ホ":out = out + "HO"
+			Case "マ":out = out + "MA"
+			Case "ミ":out = out + "MI"
+			Case "ム":out = out + "MU"
+			Case "メ":out = out + "ME"
+			Case "モ":out = out + "MO"
+			Case "ヤ":out = out + "YA"
+			Case "ユ":out = out + "YU"
+			Case "ヨ":out = out + "YO"
+			Case "ラ":out = out + "RA"
+			Case "リ":out = out + "RI"
+			Case "ル":out = out + "RU"
+			Case "レ":out = out + "RE"
+			Case "ロ":out = out + "RO"
+			Case "ワ":out = out + "WA"
+			Case "ヲ":out = out + "WO"
+			Case "ガ":out = out + "GA"
+			Case "ギ":out = out + "GI"
+			Case "グ":out = out + "GU"
+			Case "ゲ":out = out + "GE"
+			Case "ゴ":out = out + "GO"
+			Case "ザ":out = out + "ZA"
+			Case "ジ":out = out + "JI"
+			Case "ズ":out = out + "ZU"
+			Case "ゼ":out = out + "ZE"
+			Case "ゾ":out = out + "ZO"
+			Case "ダ":out = out + "DA"
+			Case "ヂ":out = out + "DI"
+			Case "ヅ":out = out + "DU"
+			Case "デ":out = out + "DE"
+			Case "ド":out = out + "DO"
+			Case "バ":out = out + "BA"
+			Case "ビ":out = out + "BI"
+			Case "ブ":out = out + "BU"
+			Case "ベ":out = out + "BE"
+			Case "ボ":out = out + "BO"
+			Case "パ":out = out + "PA"
+			Case "ピ":out = out + "PI"
+			Case "プ":out = out + "PU"
+			Case "ペ":out = out + "PE"
+			Case "ポ":out = out + "PO"
+			Case "ン":out = out + "N"	
+			Case "ヰ":out = out + "WI"
+			Case "ヱ":out = out + "WE"
+			Case "ヴ":out = out + "VU"
+			Case "っ": out = out + "っ"
+			Case "ッ": out = out + "ッ"
+			Case "ー": out = out + "ー"
+			End Select
+		End Select
+	Next
+	'now, do the duplicate chars - っ
+	Dim out2 As String
+	For n = 1 To Len(out)
+		temp =Mid$(out,n,1)
+		If temp="っ" Or temp = "ッ" Then
+			out2 = out2+Mid$(out,n+1,1)
+		Elseif  temp = "ー" Then
+			out2 = out2+Mid$(out,n-1,1)
+		Else
+			out2=out2+temp
+		End If
+	Next
+	
+	ConvertToRomaji = out2
+	
+End Function
+
+'++LotusScript Development Environment:2:1:reverseString:1:8
+Function reverseString(orig As String) As String
+	Dim result As String
+	For i  = 0 To Len(orig) - 1
+		result = result +Mid$(orig, Len(orig)  - i,1)
+	Next
+	reverseString = result
+End Function
+
+'++LotusScript Development Environment:2:1:chartype:1:8
+Function chartype(char As String) As String
+	If char="" Then 
+		chartype=""
+		Exit Function
+	End If
+	num = Uni(char)
+	If num <= Uni("z") Then
+		chartype = "Romaji"
+		Goto out
+	End If
+	If num <= Uni("を") Then
+		chartype = "Kana"
+		Goto out
+	End If
+	chartype = "Kanji"
+	
+out:
+	'Print chartype
+	
+End Function

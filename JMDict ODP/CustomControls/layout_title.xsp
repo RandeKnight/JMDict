@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xp:view xmlns:xp="http://www.ibm.com/xsp/core">
+	<div class="lotusTitleBar">
+		<div class="lotusRightCorner">
+			<div class="lotusInner">
+				<ul class="lotusTabs" role="navigation">
+					<!--put class="lotusSelected" on the li element of the selected tab-->
+					<li >
+						<div>
+							<a href="javascript:;">
+								Blog
+							</a>
+						</div>
+					</li>
+					<li class="lotusSelected">
+						<div>
+							<a href="javascript:;">Dictionary</a>
+						</div>
+					</li>
+				</ul>
+			</div>
+		</div>
+	</div>
+</xp:view>

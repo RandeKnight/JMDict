@@ -1,0 +1,211 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xp:view xmlns:xp="http://www.ibm.com/xsp/core">
+	<xp:this.resources>
+		<xp:styleSheet href="/repeatview.css"></xp:styleSheet>
+	</xp:this.resources>
+	<xp:panel>
+		<xp:this.data>
+			<xp:dominoView var="WordsByAllView" viewName="kebrebrom"></xp:dominoView>
+		</xp:this.data>
+		<xp:table styleClass="thintop" style="width:100%">
+			<xp:this.rendered><![CDATA[#{javascript:sessionScope.searchType=="WordsByAllView"}]]></xp:this.rendered>
+			<xp:tr>
+				<xp:td colspan="3">
+					<xp:pager id="pager1" for="repeat1" layout="Previous Group Next">
+					</xp:pager>
+				</xp:td>
+			</xp:tr>
+			<xp:repeat id="repeat1" value="#{WordsByAllView}" rows="30"
+				var="WBAVrow">
+				<xp:tr id="tr1">
+					<xp:td styleClass="thintop">
+						<xp:text escape="false">
+							<xp:this.value>
+							<![CDATA[#{javascript:@Implode(WBAVrow.getColumnValue('kebrebrom'),'<br>')}]]>
+							</xp:this.value>
+						</xp:text>
+					</xp:td>
+					<xp:td styleClass="thintop">
+						<xp:text escape="false">
+							<xp:this.value>
+							<![CDATA[#{javascript:@Implode(WBAVrow.getColumnValue('reb'),'<br>')}]]>
+							</xp:this.value>
+						</xp:text>
+					</xp:td>
+					<xp:td styleClass="thintop" id="td1">
+						<xp:text escape="false">
+							<xp:this.value>
+							<![CDATA[#{javascript:@Implode(WBAVrow.getColumnValue('gloss'),'<br>')}]]>
+							</xp:this.value>
+						</xp:text>
+
+					</xp:td>
+
+					<xp:eventHandler event="onclick" submit="true"
+						refreshMode="partial" refreshId="wordView">
+						<xp:this.action><![CDATA[#{javascript:sessionScope.entryID=@Right(WBAVrow.getColumnValue('noteid'),8);}]]></xp:this.action>
+					</xp:eventHandler>
+				</xp:tr>
+			</xp:repeat>
+		</xp:table>
+	</xp:panel>
+	<xp:panel>
+		<xp:this.data>
+			<xp:dominoView var="WordsByKanjiView" viewName="keb"></xp:dominoView>
+		</xp:this.data>
+
+		<xp:table styleClass="thintop">
+			<xp:this.rendered><![CDATA[#{javascript:sessionScope.searchType=="WordsByKanjiView"}]]></xp:this.rendered>
+			<xp:tr>
+				<xp:td colspan="3">
+					<xp:pager layout="Previous Group Next" id="pager2" for="repeat2">
+					</xp:pager>
+				</xp:td>
+			</xp:tr>
+			<xp:repeat id="repeat2" rows="30" value="#{WordsByKanjiView}"
+				var="WBKJVrow">
+				<xp:this.rendered><![CDATA[#{javascript:sessionScope.searchType=="WordsByKanjiView"}]]></xp:this.rendered>
+				<xp:tr id="tr2">
+					<xp:td styleClass="thintop">
+						<xp:text escape="false">
+							<xp:this.value>
+							<![CDATA[#{javascript:@Implode(WBKJVrow.getColumnValue('keb'),'<br>')}]]>
+							</xp:this.value>
+						</xp:text>
+					</xp:td>
+					<xp:td styleClass="thintop">
+						<xp:text escape="false">
+							<xp:this.value>
+							<![CDATA[#{javascript:@Implode(WBKJVrow.getColumnValue('reb'),'<br>')}]]>
+							</xp:this.value>
+						</xp:text>
+					</xp:td>
+					<xp:td styleClass="thintop">
+						<xp:text escape="false">
+							<xp:this.value>
+							<![CDATA[#{javascript:@Implode(WBKJVrow.getColumnValue('gloss'),'<br>')}]]>
+							</xp:this.value>
+						</xp:text>
+					</xp:td>
+
+					<xp:eventHandler event="onclick" submit="true"
+						refreshMode="partial" refreshId="wordView">
+						<xp:this.action><![CDATA[#{javascript:sessionScope.entryID=@Right(WBKJVrow.getColumnValue('noteid'),8);}]]></xp:this.action>
+					</xp:eventHandler>
+				</xp:tr>
+			</xp:repeat>
+		</xp:table>
+	</xp:panel>
+	<xp:panel>
+		<xp:this.data>
+			<xp:dominoView var="WordsByKanaView" viewName="reb"></xp:dominoView>
+		</xp:this.data>
+		<xp:table styleClass="thintop">
+			<xp:this.rendered><![CDATA[#{javascript:sessionScope.searchType=="WordsByKanaView"}]]></xp:this.rendered>
+			<xp:tr>
+				<xp:td colspan="3">
+					<xp:pager layout="Previous Group Next" id="pager3" for="repeat3">
+					</xp:pager>
+				</xp:td>
+			</xp:tr>
+			<xp:repeat id="repeat3" rows="30" value="#{WordsByKanaView}"
+				var="WBKVrow">
+				<xp:this.rendered><![CDATA[#{javascript:sessionScope.searchType=="WordsByKanaView"}]]></xp:this.rendered>
+				<xp:tr id="tr3">
+					<xp:td styleClass="thintop">
+						<xp:text escape="false">
+							<xp:this.value>
+							<![CDATA[#{javascript:@Implode(WBKVrow.getColumnValue('keb'),'<br>')}]]>
+							</xp:this.value>
+						</xp:text>
+					</xp:td>
+					<xp:td styleClass="thintop">
+						<xp:text escape="false">
+							<xp:this.value>
+							<![CDATA[#{javascript:@Implode(WBKVrow.getColumnValue('rebRomaji'),'<br>')}]]>
+							</xp:this.value>
+						</xp:text>
+					</xp:td>
+					<xp:td styleClass="thintop">
+						<xp:text escape="false">
+							<xp:this.value>
+							<![CDATA[#{javascript:@Implode(WBKVrow.getColumnValue('keb'),'<br>')}]]>
+							</xp:this.value>
+						</xp:text>
+					</xp:td>
+					<xp:td styleClass="thintop">
+						<xp:text escape="false">
+							<xp:this.value>
+							<![CDATA[#{javascript:@Implode(WBKVrow.getColumnValue('gloss'),'<br>')}]]>
+							</xp:this.value>
+						</xp:text>
+					</xp:td>
+
+					<xp:eventHandler event="onclick" submit="true"
+						refreshMode="partial" refreshId="wordView">
+						<xp:this.action><![CDATA[#{javascript:sessionScope.entryID=@Right(WBKVrow.getColumnValue('noteid'),8);}]]></xp:this.action>
+					</xp:eventHandler>
+				</xp:tr>
+
+			</xp:repeat>
+			<xp:tr>
+				<xp:td colspan="3">
+					<xp:pager layout="Previous Group Next" id="pager5" for="repeat3">
+					</xp:pager>
+				</xp:td>
+			</xp:tr>
+		</xp:table>
+	</xp:panel>
+	<xp:panel>
+		<xp:this.data>
+			<xp:dominoView var="WordsByRomajiView" viewName="rebR"></xp:dominoView>
+		</xp:this.data>
+		<xp:table styleClass="thintop">
+			<xp:this.rendered><![CDATA[#{javascript:sessionScope.searchType=="WordsByRomajiView"}]]></xp:this.rendered>
+			<xp:tr>
+				<xp:td colspan="3">
+					<xp:pager layout="Previous Group Next" id="pager4" for="repeat4">
+					</xp:pager>
+				</xp:td>
+			</xp:tr>
+			<xp:repeat id="repeat4" rows="30" value="#{WordsByRomajiView}"
+				var="WBRVrow">
+				<xp:this.rendered><![CDATA[#{javascript:sessionScope.searchType=="WordsByRomajiView"}]]></xp:this.rendered>
+				<xp:tr id="tr4">
+					<xp:td styleClass="thintop">
+						<xp:text escape="false">
+							<xp:this.value>
+							<![CDATA[#{javascript:@Implode(WBRVrow.getColumnValue('rebRomaji'),'<br>')}]]>
+							</xp:this.value>
+						</xp:text>
+					</xp:td>
+					<xp:td styleClass="thintop">
+						<xp:text escape="false">
+							<xp:this.value>
+							<![CDATA[#{javascript:@Implode(WBRVrow.getColumnValue('reb'),'<br>')}]]>
+							</xp:this.value>
+						</xp:text>
+					</xp:td>
+					<xp:td styleClass="thintop">
+						<xp:text escape="false">
+							<xp:this.value>
+							<![CDATA[#{javascript:@Implode(WBRVrow.getColumnValue('keb'),'<br>')}]]>
+							</xp:this.value>
+						</xp:text>
+					</xp:td>
+					<xp:td styleClass="thintop">
+						<xp:text escape="false">
+							<xp:this.value>
+							<![CDATA[#{javascript:@Implode(WBRVrow.getColumnValue('gloss'),'<br>')}]]>
+							</xp:this.value>
+						</xp:text>
+					</xp:td>
+					<xp:eventHandler event="onclick" submit="true"
+						refreshMode="partial" refreshId="wordView">
+						<xp:this.action><![CDATA[#{javascript:sessionScope.entryID=@Right(WBRVrow.getColumnValue('noteid'),8);}]]></xp:this.action>
+					</xp:eventHandler>
+				</xp:tr>
+			</xp:repeat>
+		</xp:table>
+	</xp:panel>
+</xp:view>

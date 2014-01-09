@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xp:view xmlns:xp="http://www.ibm.com/xsp/core">
+				<xp:panel id="viewLoadingPanel"
+							style="display:none;background-image:url(ajax-loader.gif);background-repeat: no-repeat;
+background-position: center;">
+							<br />
+							<br />
+							<br />
+							<br />
+							<xp:div style="text-align:center;font-weight:bold">
+								Please wait...
+								
+</xp:div>
+							<br />
+							<br />
+	</xp:panel>
+</xp:view>

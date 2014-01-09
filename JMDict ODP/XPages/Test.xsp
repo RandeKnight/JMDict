@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xp:view xmlns:xp="http://www.ibm.com/xsp/core" xmlns:xc="http://www.ibm.com/xsp/custom">
+	<xp:this.resources>
+		<xp:styleSheet href="/repeatview.css"></xp:styleSheet>
+	</xp:this.resources>
+	<xp:table cellpadding="0" cellspacing="0"
+		style="width:100.0%">
+		<xp:tr>
+			<xp:td>
+				<xp:table>
+					<xp:tr>
+						<xp:td colspan="2">
+							<xc:SkipRadicalSearch></xc:SkipRadicalSearch>
+						</xp:td>
+					</xp:tr>
+					<xp:tr>
+						<xp:td styleClass="thintop" style="width:50.0%">
+							<xc:WordSearch></xc:WordSearch>
+						</xp:td>
+						<xp:td styleClass="thintop" style="width:50.0%">
+							<xc:NameSearch></xc:NameSearch>
+						</xp:td>
+					</xp:tr>
+				</xp:table>
+			</xp:td>
+			<xp:td styleClass="thintop"
+				style="width:50.0%">
+				<xc:WordResponse></xc:WordResponse>
+				<xc:NameResponse></xc:NameResponse>
+			</xp:td>
+			<xp:td styleClass="thintop" style="width:20.0%">
+			<xc:WordDisplay></xc:WordDisplay></xp:td>
+		</xp:tr>
+	</xp:table>
+</xp:view>

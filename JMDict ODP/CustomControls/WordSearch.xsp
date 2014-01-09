@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xp:view xmlns:xp="http://www.ibm.com/xsp/core">
+	<xp:this.resources>
+		<xp:script src="/BuildQueryStringJS.jss" clientSide="false"></xp:script>
+	</xp:this.resources>
+	<xp:div styleClass="lotusMenu">
+		<xp:div styleClass="lotusBottomCorner">
+			<xp:div styleClass="lotusInner">
+				<h3>Word search</h3>
+				<table>
+					<tr>
+						<td>
+							<xp:label value="Begins" for="WordSearchBegins" id="labelBegins"></xp:label>
+						</td>
+						<td>
+							<xp:inputText id="WordSearchBegins" value="#{sessionScope.wordSearchBegins}"
+								style="width:100px">
+							</xp:inputText>
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<xp:label value="Contains" id="labelContains" for="WordSearchContains"></xp:label>
+						</td>
+						<td>
+							<xp:inputText id="WordSearchContains" value="#{sessionScope.wordSearchContains}" style="width:100px"></xp:inputText>
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<xp:label value="Ends" id="labelEnds" for="WordSearchEnds"></xp:label>
+						</td>
+						<td>
+							<xp:inputText id="WordSearchEnds" value="#{sessionScope.wordSearchEnds}"
+								style="width:100px">
+							</xp:inputText>
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<xp:label value="Means" id="labelMeans" for="WordSearchMeans"></xp:label>
+						</td>
+						<td>
+							<xp:inputText id="WordSearchMeans" value="#{sessionScope.wordSearchMeans}"
+								style="width:100px">
+							</xp:inputText>
+						</td>
+					</tr>
+				</table>
+				<xp:button value="Search" id="button2" type="submit"
+					styleClass="lotusBtn lotusBtnSpecial" refreshMode="complete">
+					<xp:eventHandler event="onclick" submit="true"
+						refreshMode="complete" save="false" id="eventHandler1">
+						<xp:this.action><![CDATA[#{javascript:
+							var qs = buildQueryString(
+								sessionScope.wordSearchBegins,
+								sessionScope.wordSearchContains,
+								sessionScope.wordSearchEnds,
+								sessionScope.wordSearchMeans);
+							sessionScope.put("searchType","WordSearch");
+							sessionScope.remove("nameID");
+							sessionScope.remove("charID");
+							sessionScope.put("rowsShown",7);
+							sessionScope.put("queryString",qs);
+							;}]]></xp:this.action>
+							<xp:this.script><![CDATA[
+							document.body.style.cursor='wait';
+							document.getElementById('#{id:viewLoadingPanel}').style.display='';
+							document.getElementById('#{id:viewPanel}').style.display='none';
+							]]></xp:this.script>
+							<xp:this.onComplete><![CDATA[
+							document.body.style.cursor='pointer';
+							document.getElementById('#{id:viewLoadingPanel}').style.display='none';
+							document.getElementById('#{id:viewPanel}').style.display='block';
+						]]></xp:this.onComplete>
+					</xp:eventHandler>
+				</xp:button>
+			</xp:div>
+		</xp:div>
+	</xp:div>
+</xp:view>

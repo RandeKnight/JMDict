@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xp:view xmlns:xp="http://www.ibm.com/xsp/core">
+	<xp:this.data>
+		<xp:dominoView var="ntype" viewName="ntype"></xp:dominoView>
+	</xp:this.data>
+
+	<xp:this.resources>
+		<xp:script src="/BuildQueryStringJS.jss" clientSide="false"></xp:script>
+	</xp:this.resources>
+	<xp:this.beforePageLoad><![CDATA[#{javascript:
+if(!sessionScope.containsKey('nameSearchBegins')){sessionScope.nameSearchBegins="";}
+if(!sessionScope.containsKey('nameSearchContains')){sessionScope.nameSearchContains="";}
+if(!sessionScope.containsKey('nameSearchEnds')){sessionScope.nameSearchEnds="";}
+if(!sessionScope.containsKey('nameSearchType')){sessionScope.nameSearchType="";}
+}]]></xp:this.beforePageLoad>
+	
+	<xp:div styleClass="lotusMenu">
+		<xp:div styleClass="lotusBottomCorner">
+			<xp:div styleClass="lotusInner">
+				<h3>Name search</h3>
+				<table>
+					<tr>
+						<td>
+							<xp:label id="labelNSBegins" value="Begins" for="NameSearchBegins"></xp:label>
+						</td>
+						<td>
+							<xp:inputText id="NameSearchBegins" style="width:100px"
+								value="#{sessionScope.nameSearchBegins}">
+							</xp:inputText>
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<xp:label id="labelNSMiddle" value="Contains" for="NameSearchContains"></xp:label>
+						</td>
+						<td>
+							<xp:inputText id="NameSearchContains" style="width:100px"
+								value="#{sessionScope.nameSearchContains}">
+							</xp:inputText>
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<xp:label id="labelNSEnds" value="Ends" for="NameSearchEnds"></xp:label>
+						</td>
+						<td>
+							<xp:inputText id="NameSearchEnds" style="width:100px"
+								value="#{sessionScope.nameSearchEnds}">
+							</xp:inputText>
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<xp:label id="labelNSType" value="Type" for="NameSearchType"></xp:label>
+						</td>
+						<td>
+							<xp:comboBox id="NameSearchType" style="width:100px"
+								value="#{sessionScope.nameSearchType}">
+								<xp:selectItems>
+									<xp:this.value><![CDATA[${javascript:@DbColumn(@DbName(),"nkeb",4);}]]></xp:this.value>
+								</xp:selectItems>
+							</xp:comboBox>
+						</td>
+					</tr>
+				</table>
+
+				<xp:button value="Search" id="searchNameButton" type="submit"
+					styleClass="lotusBtn lotusBtnSpecial" refreshMode="complete">
+					<xp:eventHandler event="onclick" submit="true"
+						refreshMode="complete" immediate="false" save="false" id="eventHandler1">
+						<xp:this.action><![CDATA[#{javascript:
+							var qs = buildNameQueryString(
+								sessionScope.nameSearchBegins,
+								sessionScope.nameSearchContains,
+								sessionScope.nameSearchEnds,
+								sessionScope.nameSearchType);
+							sessionScope.put("searchType","NameSearch");
+							sessionScope.remove("entryID");
+							sessionScope.remove("charID");
+							sessionScope.put("rowsShown",7);
+							sessionScope.put("queryString",qs);
+							print(qs);
+							;}]]></xp:this.action>
+					</xp:eventHandler>
+				</xp:button>
+
+			</xp:div>
+		</xp:div>
+	</xp:div>
+</xp:view>

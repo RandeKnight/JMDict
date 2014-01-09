@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xp:view xmlns:xp="http://www.ibm.com/xsp/core">
+	<xp:this.resources>
+		<xp:script src="/Utility.js" clientSide="true"></xp:script>
+	</xp:this.resources>
+	<xp:panel id="nameView">
+		<xp:this.data>
+			<xp:dominoDocument var="nameEntryDoc" formName="Name"
+				action="openDocument">
+				<xp:this.documentId><![CDATA[#{javascript:sessionScope.get("nameID")}]]></xp:this.documentId>
+			</xp:dominoDocument>
+		</xp:this.data>
+		<xp:div styleClass="lotusMenu">
+			<xp:div styleClass="lotusBottomCorner">
+				<xp:div styleClass="lotusInner">
+					<xp:table>
+						<xp:tr>
+							<td>
+								<h3>Name</h3>
+							</td>
+						</xp:tr>
+						<xp:tr>
+							<td colspan="2" id="nameTextSuper">
+								<xp:repeat id="nameTextRep" var="nameEntry"
+									removeRepeat="true">
+									<xp:this.value><![CDATA[#{javascript:nameEntryDoc.getItemValueArray("keb")}]]></xp:this.value>
+									<xp:repeat id="charEntryTextRep" var="charEntry"
+										removeRepeat="true">
+										<xp:this.value><![CDATA[#{javascript:nameEntry.split()}]]></xp:this.value>
+										<xp:link escape="true" text="#{javascript:charEntry}"
+											id="link1" style="text-decoration:none;">
+											<xp:eventHandler event="onclick" submit="true"
+												refreshMode="partial" refreshId="EntryDisplay">
+												<xp:this.action><![CDATA[#{javascript:sessionScope.charID=@Right(@DbLookup('','kanji',charEntry,8),8) 
+											}]]></xp:this.action>
+											</xp:eventHandler>
+											<xp:this.rendered><![CDATA[#{javascript:charEntry.charCodeAt(0)>19968}]]></xp:this.rendered>
+										</xp:link>
+										<xp:text value="#{javascript:charEntry}" id="label1">
+											<xp:this.rendered><![CDATA[#{javascript:charEntry.charCodeAt(0)<=19968}]]></xp:this.rendered>
+										</xp:text>
+									</xp:repeat>
+								</xp:repeat>
+								<xp:text escape="false" id="nameEntryText" style="font-size:10pt">
+									<xp:this.value><![CDATA[#{javascript:@Implode(nameEntryDoc.getItemValueArray("keb"),"<br />")}]]></xp:this.value>
+								</xp:text>
+								<script language="Javascript">
+									XSP.addOnLoad(function () {
+									initLocalN();
+									}
+									);
+				</script>
+								<xp:text escape="false" id="computedField8">
+									<xp:this.value><![CDATA[#{javascript:var out="<script language=\"Javascript\">\n";
+out += "var nentryTextId = \"" + getClientId("nameEntryText") + "\";\n";
+out += "var divWidthId = \"" + getClientId("EntryDisplay") + "\";\n";
+out += "function initLocalN(){\n";
+out += "var nentryText = document.getElementById(nentryTextId);\n";
+out += "var divWidth = document.getElementById(divWidthId);\n";
+out += "var nts=addCSSRule('#nameTextSuper');\n";
+out += "nts.style.fontSize = pointSizeToFit(nentryText,divWidth.offsetWidth);\n";
+out += "nentryText.style.display='none';\n";
+out += "}\n";
+out += "</script>";
+out}]]></xp:this.value>
+								</xp:text>
+							</td>
+						</xp:tr>
+						<xp:tr>
+							<xp:td>
+								<h4>kana</h4>
+								<xp:text escape="false" id="computedField1">
+									<xp:this.value><![CDATA[#{javascript:@Implode(nameEntryDoc.getItemValueArray("reb"),"<br />")}]]></xp:this.value>
+
+								</xp:text>
+							</xp:td>
+							<xp:td>
+								<h4>romaji</h4>
+								<xp:text escape="false" id="computedField6">
+									<xp:this.value><![CDATA[#{javascript:@Implode(nameEntryDoc.getItemValueArray("trans_det"),"<br />")}]]></xp:this.value>
+								</xp:text>
+							</xp:td>
+						</xp:tr>
+					</xp:table>
+				</xp:div>
+			</xp:div>
+		</xp:div>
+	</xp:panel>
+</xp:view>

@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xp:view xmlns:xp="http://www.ibm.com/xsp/core">
+
+	<xp:this.data>
+		<xp:dominoView var="WordsByAllView" viewName="kebrebrom"></xp:dominoView>
+	</xp:this.data>
+
+	<xp:this.resources>
+		<xp:styleSheet href="/repeatview.css"></xp:styleSheet>
+	</xp:this.resources>
+	<xp:table styleClass="thintop" style="width:100%">
+		<xp:this.rendered><![CDATA[#{javascript:sessionScope.searchType=="WordsByAllView"}]]></xp:this.rendered>
+		<xp:tr>
+			<xp:td colspan="3">
+				<xp:pager id="pager1" for="repeat1"
+					layout="Previous Group Next">
+				</xp:pager>
+			</xp:td>
+		</xp:tr>
+		<xp:repeat id="repeat1" value="#{WordsByAllView}" rows="30"
+			var="WBAVrow">
+			<xp:tr id="tr1">
+				<xp:td styleClass="thintop">
+					<xp:text escape="false">
+						<xp:this.value>
+							<![CDATA[#{javascript:@Implode(WBAVrow.getColumnValues()[0],'<br>')}]]>
+						</xp:this.value>
+					</xp:text>
+				</xp:td>
+				<xp:td styleClass="thintop">
+					<xp:text escape="false">
+						<xp:this.value>
+							<![CDATA[#{javascript:@Implode(WBAVrow.getColumnValues()[4],'<br>')}]]>
+						</xp:this.value>
+					</xp:text>
+				</xp:td>
+				<xp:td styleClass="thintop" id="td1">
+					<xp:text escape="false">
+						<xp:this.value>
+							<![CDATA[#{javascript:@Implode(WBAVrow.getColumnValues()[5],'<br>')}]]>
+						</xp:this.value>
+					</xp:text>
+				</xp:td>
+
+				<xp:eventHandler event="onclick" submit="true"
+					refreshMode="partial" refreshId="wordView">
+					<xp:this.action><![CDATA[#{javascript:sessionScope.entryID=@Right(WBAVrow.getColumnValues()[6],8);}]]></xp:this.action>
+				</xp:eventHandler></xp:tr>
+		</xp:repeat>
+	</xp:table>
+</xp:view>

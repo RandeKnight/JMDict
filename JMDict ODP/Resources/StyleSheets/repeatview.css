@@ -1,0 +1,10 @@
+.thintop {
+border-top: thin solid black;
+padding: 0px;
+vertical-align:top;
+}
+@font-face {
+font-family: Code2000Rad;
+src: url(CODE2000Rad1.TTF);
+}
+

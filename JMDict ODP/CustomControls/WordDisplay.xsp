@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xp:view xmlns:xp="http://www.ibm.com/xsp/core" dojoParseOnLoad="true">
+	<xp:this.resources>
+		<xp:script src="/Utility.js" clientSide="true"></xp:script>
+	</xp:this.resources>
+	<xp:panel id="wordView">
+		<xp:this.data>
+			<xp:dominoDocument var="entryDoc" formName="entry"
+				action="openDocument">
+				<xp:this.documentId><![CDATA[#{javascript:sessionScope.get("entryID")}]]></xp:this.documentId>
+			</xp:dominoDocument>
+		</xp:this.data>
+		<xp:div styleClass="lotusMenu">
+			<xp:div styleClass="lotusBottomCorner">
+				<xp:div styleClass="lotusInner">
+					<xp:table>
+						<xp:tr>
+							<td>
+								<h3>
+									Word
+										</h3>
+							</td>
+						</xp:tr>
+						<xp:tr>
+							<td colspan="2" id="wordTextSuper">
+								<xp:repeat id="wordEntryTextRep" var="wordEntry"
+									removeRepeat="true">
+									<xp:this.value><![CDATA[#{javascript:entryDoc.getItemValueArray("keb")}]]></xp:this.value>
+									<xp:repeat id="charEntryTextRep" var="charEntry"
+										removeRepeat="true">
+										<xp:this.value><![CDATA[#{javascript:wordEntry.split()}]]></xp:this.value>
+										<xp:link escape="true"
+											text="#{javascript:charEntry}" id="link1" style="text-decoration:none;">
+											<xp:eventHandler
+												event="onclick" submit="true" refreshMode="partial" refreshId="EntryDisplay">
+												<xp:this.action><![CDATA[#{javascript:sessionScope.charID=@Right(@DbLookup('','kanji',charEntry,8),8) 
+											}]]></xp:this.action> 
+											</xp:eventHandler>
+											<xp:this.rendered><![CDATA[#{javascript:charEntry.charCodeAt(0)>19968}]]></xp:this.rendered>
+										</xp:link>
+										<xp:text value="#{javascript:charEntry}" id="label1">
+											<xp:this.rendered><![CDATA[#{javascript:charEntry.charCodeAt(0)<=19968}]]></xp:this.rendered>
+										</xp:text>
+									</xp:repeat>
+									<br />
+								</xp:repeat>
+								<xp:text id="wordText" escape="false">
+									<xp:this.value>
+						<![CDATA[#{javascript:@Implode(entryDoc.getItemValueArray("keb"),"<br />")}]]>
+									</xp:this.value>
+								</xp:text>
+								<script language="Javascript"> XSP.addOnLoad(function () {
+									initLocalC();});
+				</script>
+								<xp:text escape="false" id="elementidfield1">
+									<xp:this.value><![CDATA[#{javascript:var out="<script language=\"Javascript\">\n";
+out += "var wordEntryTextId = \"" + getClientId("wordText") + "\";\n";
+out += "var divWidthId = \"" + getClientId("EntryDisplay") + "\";\n";
+out += "function initLocalC(){\n";
+out += "var wordEntryText = document.getElementById(wordEntryTextId);\n";
+out += "var divWidth = document.getElementById(divWidthId);\n";
+out += "var wts=addCSSRule('#wordTextSuper');\n";
+out += "wts.style.fontSize = pointSizeToFit(wordEntryText,divWidth.offsetWidth);\n";
+out += "wordEntryText.style.display='none';\n";
+out += "}\n";
+out += "</script>";
+out}]]></xp:this.value>
+								</xp:text>
+							</td>
+						</xp:tr>
+						<xp:tr>
+							<xp:td>
+								<h4>kana</h4>
+								<xp:text escape="false" id="kana">
+									<xp:this.value><![CDATA[#{javascript:@Implode(entryDoc.getItemValueArray("reb"),"<br />")}]]></xp:this.value>
+
+								</xp:text>
+							</xp:td>
+							<xp:td>
+								<h4>romaji</h4>
+								<xp:text escape="false" id="romaji">
+									<xp:this.value><![CDATA[#{javascript:@Implode(entryDoc.getItemValueArray("rebRomaji"),"<br />")}]]></xp:this.value>
+
+								</xp:text>
+							</xp:td>
+						</xp:tr>
+						<xp:tr>
+							<xp:td valign="top" colspan="2">
+								<xp:repeat var="glossrow">
+									<xp:this.value><![CDATA[#{javascript:entryDoc.getItemValueArray("gloss")}]]></xp:this.value>
+									▪
+									<xp:text escape="true">
+										<xp:this.value>
+													<![CDATA[#{javascript:glossrow}]]>
+										</xp:this.value>
+									</xp:text>
+									<br></br>
+								</xp:repeat>
+							</xp:td>
+						</xp:tr>
+					</xp:table>
+				</xp:div>
+			</xp:div>
+		</xp:div>
+	</xp:panel>
+</xp:view>

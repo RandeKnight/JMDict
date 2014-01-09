@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xp:view xmlns:xp="http://www.ibm.com/xsp/core">
+	<xp:this.resources>
+		<xp:script src="/buildCMQueryStringJS.jss" clientSide="false"></xp:script>
+	</xp:this.resources>
+	<xp:div styleClass="lotusMenu">
+		<xp:div styleClass="lotusBottomCorner">
+			<xp:div styleClass="lotusInner">
+				<h3>Kanji Search (Character/Meaning)</h3>
+				<xp:panel id="kanjiSearchPanel">
+					<table>
+						<tr>
+							<td>
+								<xp:label id="labelCMcharacter" value="Char" for="kCharacter"></xp:label>
+							</td>
+							<td>
+								<xp:label id="labelCMmean" value="Meaning" for="kMeaning"></xp:label>
+							</td>
+							<td></td>
+						</tr>
+						<tr>
+							<td>
+								<xp:inputText id="kCharacter" style="width:20px"
+									value="#{sessionScope.kCharacter}">
+									<xp:eventHandler event="onkeypress" submit="true">
+										<xp:this.script><![CDATA[if (thisEvent.keyCode==13) {
+      return true;
+}else{
+      return false;
+}]]></xp:this.script>
+										<xp:this.action><![CDATA[#{javascript:
+								var qs=buildCMQueryString(sessionScope.kCharacter,sessionScope.kMeaning);
+								sessionScope.put("queryString",qs);
+								sessionScope.searchType="CharacterMeaningSearch";}]]></xp:this.action>
+									</xp:eventHandler>
+								</xp:inputText>
+							</td>
+							<td>
+								<xp:inputText id="kMeaning" value="#{sessionScope.kMeaning}"
+									style="width:50px">
+									<xp:eventHandler event="onkeypress" submit="true">
+										<xp:this.script><![CDATA[if (thisEvent.keyCode==13) {
+      return true;
+}else{
+      return false;
+}
+]]></xp:this.script>
+										<xp:this.action><![CDATA[#{javascript:
+										var qs=buildCMQueryString(sessionScope.kCharacter,sessionScope.kMeaning);
+										sessionScope.put("queryString",qs);
+										sessionScope.searchType="CharacterMeaningSearch";}]]></xp:this.action>
+									</xp:eventHandler>
+								</xp:inputText>
+							</td>
+							<td>
+								<xp:button styleClass="lotusBtn lotusBtnSpecial" id="characterMeaningSearchButton">
+									<xp:this.value><![CDATA[>]]></xp:this.value>
+									<xp:eventHandler event="onclick" submit="true"
+										refreshMode="complete">
+										<xp:this.action><![CDATA[#{javascript:
+							var qs=buildCMQueryString(sessionScope.kCharacter,sessionScope.kMeaning);
+							sessionScope.put("queryString",qs);
+							sessionScope.searchType="CharacterMeaningSearch";}]]></xp:this.action>
+									</xp:eventHandler>
+								</xp:button>
+							</td>
+						</tr>
+					</table>
+				</xp:panel>
+			</xp:div>
+		</xp:div>
+	</xp:div>
+</xp:view>

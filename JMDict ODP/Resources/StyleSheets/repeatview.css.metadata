@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?><note class="form" maintenanceversion="1.0" replicaid="80257C5B005F130C" version="9.0" xmlns="http://www.lotus.com/dxl">
+<noteinfo noteid="3b6" sequence="17" unid="84D438DE46D20CA5802577D10059002A">
+<created><datetime>20101104T161207,46+00</datetime></created>
+<modified><datetime>20140109T171834,91+00</datetime></modified>
+<revised><datetime>20110301T130121,19+00</datetime></revised>
+<lastaccessed><datetime>20140109T171834,91+00</datetime></lastaccessed>
+<addedtofile><datetime>20140109T171834,91+00</datetime></addedtofile></noteinfo>
+<updatedby><name>CN=Atom7 Contractor/O=IOPP</name></updatedby>
+<wassignedby><name>CN=Atom7 Contractor/O=IOPP</name></wassignedby>
+<item name="$TITLE"><text>repeatview.css</text></item>
+<item name="$MimeType"><text>text/css</text></item>
+<item name="$Flags"><text>34C=Q</text></item>
+
+
+<item name="$FileNames" sign="true"><text>repeatview.css</text></item></note>

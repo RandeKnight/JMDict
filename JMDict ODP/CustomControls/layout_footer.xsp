@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xp:view xmlns:xp="http://www.ibm.com/xsp/core">
+	<div class="lotusFooter">
+		<table cellspacing="0" role="presentation">
+			<tr>		
+				<td>
+					<xp:link escape="true" id="link3" text="About"></xp:link>
+				</td>
+				<td class="lotusLast">
+					<xp:link escape="true" text="Using"
+						id="link4"></xp:link>
+				</td>
+			</tr>
+		</table>
+	</div><!--end footer-->
+</xp:view>

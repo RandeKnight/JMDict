@@ -1,0 +1,24 @@
+<?xml version='1.0' encoding='utf-8'?>
+<note class='form' xmlns='http://www.lotus.com/dxl' version='9.0' maintenanceversion='1.0'
+ replicaid='80257C5B005F130C'>
+<noteinfo noteid='186' unid='252EBD0609D1792DC12573F50052A227' sequence='20'>
+<created><datetime>20080220T160234,63+01</datetime></created>
+<modified><datetime>20140109T171832,45+00</datetime></modified>
+<revised><datetime>20080620T165544,68+00</datetime></revised>
+<lastaccessed><datetime>20140109T171832,45+00</datetime></lastaccessed>
+<addedtofile><datetime>20140109T171832,45+00</datetime></addedtofile></noteinfo>
+<updatedby><name>CN=Andrew Davie/O=TMEM</name><name>CN=Andrew Davie/O=randeknight</name></updatedby>
+<wassignedby><name>CN=Andrew Davie/O=randeknight</name></wassignedby>
+<item name='$TITLE' sign='true'><text>Launch</text></item>
+<item name='$Comment' sign='true'><text/></item>
+<item name='$FrameSet' sign='true'>
+<rawitemdata type='1'>
+7/8YAAIAAwAAAAAAAAAAAAAAAAAAAAAA8P8+AAQAAAABAAAAAAAAAAAAAAAAAAUAAAAAAAUAAAAA
+AAEAAgAAAAAABQAAAAAAAAADAAEAAgASAAIAUgDx/zgAEQAAAABAAAACAAEAAQAAAAAAAAAAAAQA
+AQAAAAAAAABtYWluAQD///8AAQAACgEAAAAAAPb/KQAAAAAAAwAHAAcAAAAAAAAAAAAAAAAAAAAA
+AAAAAABTaWRlYmFyP/H/OAAAAAAAAEABAAMAAQABAAAAAAAEAAAAAAABAAAAAAAAAG1haW4BAP//
+/wABAAAKAQAAAAAA9v8rAAAAAAADAAIACQAAAAAAAAAAAAAAAAAAAAAAAAAAAGtlYnJlYnJvbT8=
+</rawitemdata></item>
+<item name='$Flags'><text>#34CQ</text></item>
+<item name='$DesignerVersion'><text>6.5</text></item></note>
+

@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xp:view xmlns:xp="http://www.ibm.com/xsp/core">
+	<xp:this.data>
+		<xp:dominoView var="nkebSource" viewName="nkeb">
+		</xp:dominoView>
+	</xp:this.data>
+	<xp:table themeId="HtmlTable.view"
+		rendered="#{javascript:sessionScope.searchType=='NameSearch';}">
+		<xp:repeat id="repeat1"
+			rows="#{javascript:sessionScope.rowsShown}" var="thisRow">
+
+			<xp:this.value><![CDATA[#{javascript:
+								var qs = sessionScope.get("queryString");
+								if(qs!=false){
+									nkebSource.FTSearch(qs);
+									return nkebSource.getAllEntries();
+								}
+							}]]></xp:this.value>
+
+			<xp:tr themeId="HtmlTr.view"
+				rendered="#{javascript:
+				filter(thisRow.getColumnValues()[0],
+											thisRow.getColumnValues()[1],
+											thisRow.getColumnValues()[2],
+											sessionScope.nameSearchBegins,
+											sessionScope.nameSearchEnds)!=true}"
+				id="tr1">
+
+				<xp:td themeId="HtmlTd.view">
+					<xp:text escape="false" style="font-size:20pt">
+						<xp:this.value>
+							<![CDATA[#{javascript:@Implode(thisRow.getColumnValues()[0],'<br>')}]]>
+						</xp:this.value>
+					</xp:text>
+				</xp:td>
+				<xp:td themeId="HtmlTd.view">
+					<xp:text escape="false">
+						<xp:this.value>
+							<![CDATA[#{javascript:@Implode(thisRow.getColumnValues()[1],'<br>')}]]>
+						</xp:this.value>
+					</xp:text>
+				</xp:td>
+				<xp:td themeId="HtmlTd.view">
+					<xp:text escape="false">
+						<xp:this.value>
+							<![CDATA[#{javascript:@Implode(thisRow.getColumnValues()[2],'<br>')}]]>
+						</xp:this.value>
+					</xp:text>
+				</xp:td>
+				<xp:eventHandler event="onclick" submit="true"
+					refreshMode="Complete">
+					<xp:this.action><![CDATA[#{javascript:sessionScope.nameID=@Right(thisRow.getColumnValues()[4],8);}]]></xp:this.action>
+				</xp:eventHandler>
+			</xp:tr>
+		</xp:repeat>
+	</xp:table>
+</xp:view>

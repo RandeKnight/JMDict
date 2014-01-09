@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xp:view xmlns:xp="http://www.ibm.com/xsp/core" rendered="#{javascript:sessionScope.searchType=='CharacterMeaningSearch';}">
+	<xp:this.data>
+		<xp:dominoView var="kanjiCharSource" viewName="kanji">
+		<xp:this.search><![CDATA[#{javascript:sessionScope.get("queryString")}]]></xp:this.search>
+		</xp:dominoView>
+	</xp:this.data>
+	<xp:table themeId="HtmlTable.view">
+		<xp:repeat id="repeat1" var="thisRow"
+			value="#{kanjiCharSource}" rows="#{javascript:sessionScope.rowsShown}" >
+			<xp:tr id="tr1" themeId="HtmlTr.view">
+
+				<xp:td themeId="HtmlTd.view">
+					<xp:text escape="false" style="font-size:20pt">
+						<xp:this.value>
+							<![CDATA[#{javascript:@Implode(thisRow.getColumnValue('literal'),'<br>')}]]>
+						</xp:this.value>
+					</xp:text>
+				</xp:td>
+				<xp:td themeId="HtmlTd.view">
+					<xp:text escape="false">
+						<xp:this.value>
+							<![CDATA[#{javascript:@Implode(thisRow.getColumnValue('ja_on'),'<br>')}]]>
+						</xp:this.value>
+					</xp:text>
+				</xp:td>
+				<xp:td themeId="HtmlTd.view">
+					<xp:text escape="false">
+						<xp:this.value>
+							<![CDATA[#{javascript:@Implode(thisRow.getColumnValue('ja_kun'),'<br>')}]]>
+						</xp:this.value>
+					</xp:text>
+				</xp:td>
+				<xp:td themeId="HtmlTd.view">
+					<xp:text escape="false">
+						<xp:this.value>
+							<![CDATA[#{javascript:@Implode(thisRow.getColumnValue('classical'),'<br>')}]]>
+						</xp:this.value>
+					</xp:text>
+				</xp:td>
+				<xp:td themeId="HtmlTd.view">
+					<xp:text escape="false">
+						<xp:this.value>
+							<![CDATA[#{javascript:@Implode(thisRow.getColumnValue('meaning'),'<br>')}]]>
+						</xp:this.value>
+					</xp:text>
+				</xp:td>
+				<xp:eventHandler event="onclick" submit="true"
+					refreshMode="complete" refreshId="wordView">
+					<xp:this.action><![CDATA[#{javascript:sessionScope.charID=@Right(thisRow.getColumnValue('noteid'),8);}]]></xp:this.action>
+				</xp:eventHandler>
+			</xp:tr>
+		</xp:repeat>
+	</xp:table>
+</xp:view>

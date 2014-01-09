@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xp:view xmlns:xp="http://www.ibm.com/xsp/core" xmlns:xc="http://www.ibm.com/xsp/custom"
+	pageTitle="OneUI dictionary">
+	<xp:this.resources>
+		<xp:styleSheet href="/repeatview.css"></xp:styleSheet>
+	</xp:this.resources>
+
+	<xp:this.beforePageLoad><![CDATA[${javascript:
+	sessionScope.put("rowsShown",7);
+	sessionScope.wordSearchBegins="";
+sessionScope.wordSearchContains="";
+sessionScope.wordSearchEnds="";
+sessionScope.wordSearchMeans="";
+	
+	}]]></xp:this.beforePageLoad>
+	<div id="lotusFrame">
+		<xc:layout_banner></xc:layout_banner>
+		<xc:layout_title></xc:layout_title>
+		<xc:HistoryList></xc:HistoryList>
+		<div id="lotusMain">
+			<xc:layout_left></xc:layout_left>
+			<xc:layout_right></xc:layout_right>
+			<div id="lotusContent">
+				<xc:viewLoading></xc:viewLoading>
+				<xp:div id="viewPanel">
+					<xc:SkipRadicalResponse></xc:SkipRadicalResponse>
+					<xc:CharacterMeaningResponse></xc:CharacterMeaningResponse>
+					<xc:WordResponse></xc:WordResponse>
+					<xc:NameResponse></xc:NameResponse>
+					<xc:WordViews></xc:WordViews>
+					<xc:CharacterViews></xc:CharacterViews>
+					<xp:table themeId="HtmlTable.view.footer">
+						<xp:this.rendered><![CDATA[#{javascript:sessionScope.containsKey("searchType")}]]></xp:this.rendered>
+						<xp:tr themeId="HtmlTr.view.footer">
+							<xp:td themeId="HtmlTd.view.footer"
+								style="vertical-align: bottom ! important;padding-left:5px">
+								<xp:link id="link1" text="More">
+									<xp:eventHandler event="onclick"
+										submit="true" refreshMode="partial" refreshId="viewPanel">
+										<xp:this.action><![CDATA[#{javascript:sessionScope.rowsShown=sessionScope.rowsShown+7;
+}]]></xp:this.action>
+									</xp:eventHandler>
+								</xp:link>
+							</xp:td>
+						</xp:tr>
+					</xp:table>
+				</xp:div>
+			</div>
+		</div>
+		<xc:layout_footer></xc:layout_footer>
+	</div>
+
+</xp:view>

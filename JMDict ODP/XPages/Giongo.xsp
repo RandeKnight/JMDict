@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xp:view xmlns:xp="http://www.ibm.com/xsp/core">
+	<xp:span style="font-family:Arial;font-size:18pt;font-weight:bold;text-align:center"></xp:span><xp:viewPanel rows="30" value="#{giongo}" id="viewPanel1">
+		<xp:this.facets>
+			<xp:pager layout="Previous Group Next" xp:key="headerPager"
+				id="pager1">
+			</xp:pager>
+			<xp:viewTitle xp:key="viewTitle" id="viewTitle1"
+				value="Giongo">
+			</xp:viewTitle>
+			<xp:pager layout="Previous Group Next" xp:key="footerPager"
+				id="pager2">
+			</xp:pager>
+		</xp:this.facets>
+
+		<xp:viewColumn columnName="reb" id="viewColumn1">
+			<xp:viewColumnHeader value="reb" id="viewColumnHeader1"></xp:viewColumnHeader>
+		</xp:viewColumn>
+		<xp:viewColumn columnName="romaji" id="viewColumn2">
+			<xp:viewColumnHeader value="romaji" id="viewColumnHeader2"
+				sortable="true">
+			</xp:viewColumnHeader>
+		</xp:viewColumn>
+		<xp:viewColumn columnName="meaning" id="viewColumn3">
+			<xp:viewColumnHeader value="meaning"
+				id="viewColumnHeader3">
+			</xp:viewColumnHeader>
+		</xp:viewColumn>
+	</xp:viewPanel>
+
+	<xp:this.data>
+		<xp:dominoView var="giongo" viewName="Giongo"></xp:dominoView>
+	</xp:this.data></xp:view>

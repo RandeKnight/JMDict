@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?><note class="form" maintenanceversion="1.0" replicaid="80257C5B005F130C" version="9.0" xmlns="http://www.lotus.com/dxl">
+<noteinfo noteid="1d6" sequence="14" unid="E5756073AB26710EC12573FC005467F0">
+<created><datetime>20080227T162156,32+01</datetime></created>
+<modified><datetime>20140109T171832,83+00</datetime></modified>
+<revised><datetime>20080620T165558,83+00</datetime></revised>
+<lastaccessed><datetime>20140109T171832,83+00</datetime></lastaccessed>
+<addedtofile><datetime>20140109T171832,83+00</datetime></addedtofile></noteinfo>
+<updatedby><name>CN=Andrew Davie/O=TMEM</name><name>CN=Andrew Davie/O=randeknight</name></updatedby>
+<wassignedby><name>CN=Andrew Davie/O=randeknight</name></wassignedby>
+<item name="$TITLE"><text>sarissa.js</text></item>
+<item name="$FlagsExt"><text>D</text></item>
+<item name="$DesignerVersion"><text>6.5</text></item>
+
+<item name="$FileModDT" sign="true"><datetime>20080222T164956,00+01</datetime></item>
+
+
+<item name="$Flags"><text>345CgQ</text></item>
+<item name="$FileNames" sign="true"><text>sarissa.js</text></item></note>

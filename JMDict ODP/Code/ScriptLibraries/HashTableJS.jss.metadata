@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?><note class="filter" maintenanceversion="1.0" replicaid="80257C5B005F130C" version="9.0" xmlns="http://www.lotus.com/dxl">
+<noteinfo noteid="382" sequence="7" unid="7667F21915CF6EB5802577CE0056316B">
+<created><datetime>20101101T154127,47+00</datetime></created>
+<modified><datetime>20140109T171834,65+00</datetime></modified>
+<revised><datetime>20101101T154137,24+00</datetime></revised>
+<lastaccessed><datetime>20140109T171834,65+00</datetime></lastaccessed>
+<addedtofile><datetime>20140109T171834,65+00</datetime></addedtofile></noteinfo>
+<updatedby><name>CN=Atom7 Contractor/O=IOPP</name></updatedby>
+<wassignedby><name>CN=Atom7 Contractor/O=IOPP</name></wassignedby>
+<item name="$TITLE" sign="true"><text>HashTableJS</text></item>
+<item name="$Flags"><text>.5834Q</text></item>
+<item name="$PublicAccess" sign="true"><text>1</text></item>
+
+<item name="$POID"><datetime>20101101T154137,24+00</datetime></item></note>

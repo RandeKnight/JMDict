@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?><note class="filter" maintenanceversion="1.0" replicaid="80257C5B005F130C" version="9.0" xmlns="http://www.lotus.com/dxl">
+<noteinfo noteid="1fa" sequence="28" unid="F46E95817384691DC1257411003939CB">
+<created><datetime>20080319T112503,47+01</datetime></created>
+<modified><datetime>20140109T171832,99+00</datetime></modified>
+<revised><datetime>20110304T094919,01+00</datetime></revised>
+<lastaccessed><datetime>20140109T171832,99+00</datetime></lastaccessed>
+<addedtofile><datetime>20140109T171832,99+00</datetime></addedtofile></noteinfo>
+<updatedby><name>CN=Andrew Davie/O=TMEM</name><name>CN=Andrew Davie/O=randeknight</name><name>CN=Atom7 Contractor/O=IOPP</name></updatedby>
+<wassignedby><name>CN=Atom7 Contractor/O=IOPP</name></wassignedby>
+<item name="$TITLE" sign="true"><text>Conversion</text></item>
+<item name="$Flags"><text>s34Q</text></item>
+<item name="$PublicAccess"><text>1</text></item>
+<item name="$POID"><datetime>20080620T165553,34+00</datetime></item>
+
+</note>

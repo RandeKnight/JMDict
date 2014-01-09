@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xp:view xmlns:xp="http://www.ibm.com/xsp/core" rendered="false">
+	<xp:this.data>
+		<xp:dominoDocument var="dominoDocument1" formName="Literary"
+			action="openDocument" />
+	</xp:this.data>
+
+	<xp:this.afterRenderResponse><![CDATA[#{javascript:import conversionJS;
+print("test XAgent");
+// The Faces Context global object provides access to the servlet environment via the external content
+var extCont = facesContext.getExternalContext();
+//Faces Context Response Writer is similar to the lotuscript print statement
+// and the Java printwriter object to produce output to the browser.
+// There is also a getResposneStream() for producing binary output.
+var pageOutput = facesContext.getResponseWriter();
+// The servlet's response object provides control to the response object
+var pageResponse = extCont.getResponse();
+// The content type has to be set to the output MIME type.
+// For Example text/html, text/xml, application/json
+pageResponse.setContentType("text/html");
+// Additional methods of the response object can be set. The following keeps the content from being cached.
+pageResponse.setHeader("Cache-Control", "no-cache");
+//<< use pageOutput.write(); to write content to the browser >>
+
+facesContext.responseComplete();
+var db = database;
+var kebview = db.getView("keb")
+var b = sessionScope.beginSearch;
+var m = sessionScope.middleSearch;
+var e = sessionScope.endSearch;
+var mean = sessionScope.meanSearch;
+var queryString = buildQuery([b,m,e],mean);
+if (queryString!=""){
+	var evens=true;
+	var count=kebview.FTSearch(queryString);
+	var kebdoc = kebview.getFirstDocument();
+	while (kebdoc!=null){
+		if (filterDoc(kebdoc,b,e)){
+			if (evens){pageOutput.write("<td valign='top' bgcolor='#EOFFFF'>");}
+			else {pageOutput.write("<td valign='top'>");}
+			
+		}
+		kebdoc = kebview.getNextDocument(kebdoc);
+	}
+}
+// Tell the browser the content is complete
+pageOutput.endDocument();
+// Close the output stream
+pageOutput.close();
+// Terminates the request processing lifecycle.}]]></xp:this.afterRenderResponse>
+</xp:view>

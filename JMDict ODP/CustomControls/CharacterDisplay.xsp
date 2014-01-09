@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xp:view xmlns:xp="http://www.ibm.com/xsp/core">
+	<xp:this.resources>
+		<xp:script src="/Utility.js" clientSide="true"></xp:script>
+	</xp:this.resources>
+	<xp:panel id="charView">
+		<xp:this.data>
+			<xp:dominoDocument var="charDoc" formName="entry"
+				action="openDocument">
+				<xp:this.documentId><![CDATA[#{javascript:sessionScope.get("charID")}]]></xp:this.documentId>
+			</xp:dominoDocument>
+		</xp:this.data>
+		<xp:div styleClass="lotusMenu">
+			<xp:div styleClass="lotusBottomCorner">
+				<xp:div styleClass="lotusInner">
+					<xp:table>
+						<xp:tr>
+							<td>
+								<h3>Character</h3>
+							</td>
+						</xp:tr>
+						<xp:tr>
+							<td style="font-size:28pt;" colspan="2">
+								<xp:link escape="false" id="charTextId" style="text-decoration:none;">
+									<xp:this.text><![CDATA[#{javascript:@Implode(charDoc.getItemValueArray("literal"),"<br />")}]]></xp:this.text>
+									<xp:eventHandler event="onclick" submit="true"
+										refreshMode="complete">
+										<xp:this.action><![CDATA[#{javascript:
+										var qs = buildQueryString(
+								"",
+								charDoc.getItemValue("literal")[0],
+								"",
+								"");
+							sessionScope.put("searchType","WordSearch");
+							sessionScope.remove("entryID");
+							sessionScope.remove("nameID");
+							sessionScope.put("rowsShown",7);
+							sessionScope.put("queryString",qs);
+											}]]></xp:this.action>
+									</xp:eventHandler>
+								</xp:link>
+								<script language="Javascript">
+									XSP.addOnLoad(function () {
+									initLocal();
+									}
+									);
+</script>
+								<xp:text escape="false" id="elementidfield1">
+									<xp:this.value><![CDATA[#{javascript:var out="<script language=\"Javascript\">\n";
+out += "var charTextId = \"" + getClientId("charTextId") + "\";\n";
+out += "var divCWidthId = \"" + getClientId("EntryDisplay") + "\";\n";
+out += "function initLocal(){\n";
+out += "var charElem = document.getElementById(charTextId);\n";
+out += "var divCWidth = document.getElementById(divCWidthId);\n";
+out += "charElem.style.fontSize = pointSizeToFit(charElem,divCWidth.offsetWidth);\n";
+out += "}\n";
+out += "</script>";
+out}]]></xp:this.value>
+								</xp:text>
+							</td>
+						</xp:tr>
+						<xp:tr>
+							<xp:td>
+								<h4>On</h4>
+								<xp:text escape="false" id="computedField3">
+									<xp:this.value><![CDATA[#{javascript:@Implode(charDoc.getItemValueArray("ja_on"),"<br />")}]]></xp:this.value>
+
+								</xp:text>
+							</xp:td>
+							<xp:td>
+								<h4>Kun</h4>
+								<xp:text escape="false" id="computedField4">
+									<xp:this.value><![CDATA[#{javascript:@Implode(charDoc.getItemValueArray("ja_kun"),"<br />")}]]></xp:this.value>
+
+								</xp:text>
+							</xp:td>
+						</xp:tr>
+						<xp:tr>
+							<xp:td valign="top" colspan="2">
+								<h4>Meaning</h4>
+								<xp:repeat var="glossrow">
+									<xp:this.value><![CDATA[#{javascript:charDoc.getItemValueArray("meaning")}]]></xp:this.value>
+									▪
+									<xp:text escape="true">
+										<xp:this.value>
+													<![CDATA[#{javascript:glossrow}]]>
+										</xp:this.value>
+									</xp:text>
+									<br></br>
+								</xp:repeat>
+							</xp:td>
+						</xp:tr>
+					</xp:table>
+				</xp:div>
+			</xp:div>
+		</xp:div>
+	</xp:panel>
+</xp:view>

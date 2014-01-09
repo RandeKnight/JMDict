@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?><note class="form" maintenanceversion="1.0" replicaid="80257C5B005F130C" version="9.0" xmlns="http://www.lotus.com/dxl">
+<noteinfo noteid="37a" sequence="6" unid="9DE70412D4FC5EC0802577D900483328">
+<created><datetime>20101112T130836,88+00</datetime></created>
+<modified><datetime>20140109T171834,61+00</datetime></modified>
+<revised><datetime>20101112T130839,51+00</datetime></revised>
+<lastaccessed><datetime>20140109T171834,61+00</datetime></lastaccessed>
+<addedtofile><datetime>20140109T171834,61+00</datetime></addedtofile></noteinfo>
+<updatedby><name>CN=Steve Castledine/OU=Leicester/O=Edia</name><name>CN=Steve Castledine/OU=UK/O=IBM</name><name>CN=Atom7 Contractor/O=IOPP</name></updatedby>
+<item name="$Flags"><text>34567Cg~`</text></item>
+
+
+<item name="$FileNames" sign="true"><text>Another Copy Of metalOneUI2.theme</text></item>
+<item name="$CSSFiles" sign="true"><textlist><text>/.ibmxspres/dojoroot/dijit/themes/tundra/tundra.css</text><text>/.ibmxspres/dojoroot/ibm/domino/widget/layout/css/domino-default.css</text><text>/.ibmxspres/domino/oneuiv2/base/core.css</text><text>/.ibmxspres/domino/oneuiv2/base/coreRTL.css</text><text>/.ibmxspres/domino/oneuiv2/greenTheme/greenTheme.css</text><text>/.ibmxspres/domino/oneuiv2/greenTheme/greenThemeRTL.css</text><text>custom.css</text></textlist></item>
+<item name="$TITLE" sign="true"><text>greenOneUI2.theme</text></item>
+<item name="$DesignerVersion" sign="true"><text>8.5</text></item></note>

@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xp:view xmlns:xp="http://www.ibm.com/xsp/core" xmlns:xc="http://www.ibm.com/xsp/custom">
+
+	<xp:div styleClass="lotusColLeft"
+		style="padding-left:0.0px;padding-right:20.0px;padding-top:0.0px;padding-bottom:0.0px" id="tabPanel">
+		<xp:tabbedPanel id="tabbedPanel1"
+			selectedTab="#{javascript:sessionScope.TabPanel}">
+			<xp:tabPanel label="Search" id="tabSearch"
+				style="padding-left:auto;width:100%;border:none;">
+				<xc:SkipRadicalSearch></xc:SkipRadicalSearch>
+				<xc:CharacterMeaningSearch></xc:CharacterMeaningSearch>
+				<xc:WordSearch></xc:WordSearch>
+				<xc:NameSearch></xc:NameSearch>
+				<xp:eventHandler event="onclick" submit="true"
+					refreshMode="partial" refreshId="tabPanel">
+					<xp:this.action><![CDATA[#{javascript:sessionScope.TabPanel="tabSearch"}]]></xp:this.action>
+				</xp:eventHandler>
+			</xp:tabPanel>
+			<xp:tabPanel label="Browse" id="tabBrowse"
+				style="width:100%;border:none;">
+				<div class="lotusMenu" role="menu">
+					<div class="lotusBottomCorner">
+						<div class="lotusInner">
+							<ul>
+								<li>
+									<xp:link escape="true"
+										text="Words By All" id="link1">
+										<xp:eventHandler event="onclick"
+											submit="true" refreshMode="complete" immediate="true">
+											<xp:this.action><![CDATA[#{javascript:sessionScope.searchType="WordsByAllView"}]]></xp:this.action>
+										</xp:eventHandler>
+									</xp:link>
+								</li>
+								<li>
+									<xp:link escape="true"
+										text="Words By Kanji" id="radio2">
+										<xp:eventHandler event="onclick"
+											submit="true" refreshMode="complete" immediate="true">
+											<xp:this.action><![CDATA[#{javascript:sessionScope.searchType="WordsByKanjiView"}]]></xp:this.action>
+										</xp:eventHandler>
+									</xp:link>
+								</li>
+								<li>
+									<xp:link escape="true"
+										text="Words By Kana" id="radio3">
+										<xp:eventHandler event="onclick"
+											submit="true" refreshMode="complete" immediate="true">
+											<xp:this.action><![CDATA[#{javascript:sessionScope.searchType="WordsByKanaView"}]]></xp:this.action>
+										</xp:eventHandler>
+									</xp:link>
+								</li>
+								<li>
+									<xp:link escape="true"
+										text="Words By Romaji" id="radio4">
+										<xp:eventHandler event="onclick"
+											submit="true" refreshMode="complete" immediate="true">
+											<xp:this.action><![CDATA[#{javascript:sessionScope.searchType="WordsByRomajiView"}]]></xp:this.action>
+										</xp:eventHandler>
+									</xp:link>
+								</li>
+								<li>
+									<xp:link escape="true"
+										text="Kanji by Radical" id="link2">
+										<xp:eventHandler event="onclick"
+											submit="true" refreshMode="complete" immediate="true">
+											<xp:this.action><![CDATA[#{javascript:sessionScope.searchType="KanjiByRadicalView"}]]></xp:this.action>
+										</xp:eventHandler>
+									</xp:link>
+								</li>
+							</ul>
+						</div>
+					</div>
+				</div>
+				<xp:eventHandler event="onclick" submit="true"
+					refreshMode="partial" refreshId="tabPanel">
+					<xp:this.action><![CDATA[#{javascript:sessionScope.TabPanel="tabBrowse"}]]></xp:this.action>
+				</xp:eventHandler>
+			</xp:tabPanel>
+		</xp:tabbedPanel>
+	</xp:div>
+</xp:view>

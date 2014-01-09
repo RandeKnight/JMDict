@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xp:view xmlns:xp="http://www.ibm.com/xsp/core">
+	<xp:this.resources>
+		<xp:styleSheet href="/repeatview.css"></xp:styleSheet>
+	</xp:this.resources>
+	<xp:viewPanel rows="230" id="viewPanel1" viewStyle="width:100.0%"
+		var="KBRVrow">
+		<xp:this.rendered><![CDATA[#{javascript:sessionScope.searchType=="KanjiByRadicalView"}]]></xp:this.rendered>
+
+		<xp:this.data>
+			<xp:dominoView var="kanjibyRadical"
+				viewName="KanjibyRadical" expandLevel="1">
+			</xp:dominoView>
+		</xp:this.data>
+		<xp:viewColumn columnName="Radical" id="viewColumn1"
+			style="font-family:Code2000Rad;font-size:24pt;width:3em">
+			<xp:viewColumnHeader value="Radical"
+				id="viewColumnHeader1">
+			</xp:viewColumnHeader>
+		</xp:viewColumn>
+		<xp:viewColumn columnName="kanji" id="viewColumn2"
+			style="width:auto;font-size:24pt">
+			<xp:viewColumnHeader value="kanji" id="viewColumnHeader2"></xp:viewColumnHeader>
+		</xp:viewColumn>
+		<xp:viewColumn id="viewColumn3"	style="width:auto" contentType="html">
+			<xp:this.value><![CDATA[#{javascript:@Implode(KBRVrow.getColumnValue("ja_on"),'<br>')}]]></xp:this.value>
+			<xp:viewColumnHeader value="on" id="viewColumnHeader3"></xp:viewColumnHeader>
+		</xp:viewColumn>
+		<xp:viewColumn id="viewColumn4" style="width:auto" contentType="html">
+			<xp:this.value><![CDATA[#{javascript:@Implode(KBRVrow.getColumnValue("ja_kun"),'<br>')}]]></xp:this.value>
+			<xp:viewColumnHeader value="kun" id="viewColumnHeader4"></xp:viewColumnHeader>
+		</xp:viewColumn>
+		<xp:viewColumn id="viewColumn5"	style="width:auto" contentType="html">
+			<xp:this.value><![CDATA[#{javascript:@Implode(KBRVrow.getColumnValue("meaning"),'<br>')}]]></xp:this.value>
+			<xp:viewColumnHeader value="meaning"
+				id="viewColumnHeader5">
+			</xp:viewColumnHeader>
+		</xp:viewColumn>
+		<xp:viewColumn id="viewColumn6" style="width:auto">
+			<xp:this.converter>
+				<xp:convertNumber type="number" integerOnly="true"></xp:convertNumber>
+			</xp:this.converter>
+			<xp:this.value><![CDATA[#{javascript:if(KBRVrow.isCategory()){return KBRVrow.getColumnValue("total")}}]]></xp:this.value>
+			<xp:viewColumnHeader value="Total" id="viewColumnHeader6">
+			</xp:viewColumnHeader>
+		</xp:viewColumn>
+	</xp:viewPanel>
+
+</xp:view>

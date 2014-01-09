@@ -1,0 +1,60 @@
+<theme>
+<!-- dojo specific -->
+	<resource dojoTheme="true">
+		<content-type>text/css</content-type>
+		<href>/.ibmxspres/dojoroot/dijit/themes/tundra/tundra.css</href>
+	</resource>
+	<resource dojoTheme="true">
+		<content-type>text/css</content-type>
+		<href>/.ibmxspres/dojoroot/ibm/domino/widget/layout/css/domino-default.css</href>
+	</resource>
+
+	<resource>
+		<content-type>text/css</content-type>
+		<href>/.ibmxspres/domino/oneuiv2/base/core.css</href>
+	</resource>
+    
+    <resource rendered="#{javascript:context.isDirectionRTL()}">
+		<content-type>text/css</content-type>
+		<href>/.ibmxspres/domino/oneuiv2/base/coreRTL.css</href>
+	</resource>	
+	
+	<resource>
+		<content-type>text/css</content-type>
+		<href>/.ibmxspres/domino/oneuiv2/redTheme/redTheme.css</href>
+	</resource>
+	<resource rendered="#{javascript:context.isDirectionRTL()}">
+		<content-type>text/css</content-type>
+		<href>/.ibmxspres/domino/oneuiv2/redTheme/redThemeRTL.css</href>
+	</resource>
+	
+	<resource>
+		<content-type>text/css</content-type>
+		<href>custom.css</href>
+	</resource>
+	
+	<!-- =======================================================================
+		Global controls
+	======================================================================= -->
+
+	<!-- View Root (Page Body) -->
+		
+	<control>
+		<name>ViewRoot</name>
+		<property mode="concat">
+			<name>styleClass</name>
+			<value>tundra lotusui lotusSpritesOn</value> 
+		</property>
+	</control>	
+
+	<!-- Rich Text -->
+	<control>
+		<name>InputField.RichText</name>
+		<property mode="concat">
+			<name>styleClass</name>
+			<value>domino-richtext xspInputFieldRichText</value>
+		</property>
+	</control>
+	
+	
+</theme>

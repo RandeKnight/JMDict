@@ -1,0 +1,37 @@
+<?xml version='1.0' encoding='utf-8'?>
+<note class='form' xmlns='http://www.lotus.com/dxl' version='9.0' maintenanceversion='1.0'
+ replicaid='80257C5B005F130C'>
+<noteinfo noteid='232' unid='94E0C5A0F6D112B4C1257418004E9D68' sequence='13'>
+<created><datetime>20080326T151841,04+01</datetime></created>
+<modified><datetime>20140109T171833,19+00</datetime></modified>
+<revised><datetime>20080620T165611,10+00</datetime></revised>
+<lastaccessed><datetime>20140109T171833,19+00</datetime></lastaccessed>
+<addedtofile><datetime>20140109T171833,19+00</datetime></addedtofile></noteinfo>
+<updatedby><name>CN=Andrew Davie/O=TMEM</name><name>CN=Andrew Davie/O=randeknight</name></updatedby>
+<wassignedby><name>CN=Andrew Davie/O=randeknight</name></wassignedby>
+<item name='OriginalModTime'><datetime>20080326T151921,68+01</datetime></item>
+<item name='$HTMLCode' sign='true'>
+<rawitemdata type='1'>
+X/8QAAIADwAHAAAAAAAAAA==
+</rawitemdata></item>
+<item name='$TITLE'><text>$$SearchTemplateDefault</text></item>
+<item name='$Info' sign='true'>
+<rawitemdata type='1'>
+hhgBAIAAAAAAgAAAAQABAP///wAQAAAA
+</rawitemdata></item>
+<item name='$Flags'><text/></item>
+<item name='$DesignerVersion'><text>6.5</text></item>
+<item name='$$ScriptName' summary='false' sign='true'><text>$$SearchTemplateDefault</text></item>
+<item name='$$ViewBody' placeholder='true'>
+<rawitemdata type='0'>
+</rawitemdata></item>
+<item name='$Fields'><text>$$ViewBody</text></item>
+<item name='$Body' sign='true'>
+<rawitemdata type='1'>
+gQKC/1oAAQAAAAAAAAAAAKAFAACgBQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAABAAAAAJSHAAAAAAAAAAAAAAAAAQAAAAQAAACDBAEAhf8IAAEAAArdBgAAiv/+/1AA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAIr/LgCKAAAFADACAAAAAAAAAgEAAAoAAAAAAAAAAAoAAAAAACQk
+Vmlld0JvZHneBgAAiv+F/wgAAQAACg==
+</rawitemdata></item></note>
+

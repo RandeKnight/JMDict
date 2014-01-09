@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xp:view xmlns:xp="http://www.ibm.com/xsp/core"
+xmlns:xc="http://www.ibm.com/xsp/custom">
+	<div style="height:200px;width:500px;overflow:auto;">
+	<xp:viewPanel rows="30" id="viewPanel1" >
+		<xp:this.facets>
+			<xp:pager partialRefresh="true" layout="Previous Group Next"
+				xp:key="headerPager" id="pager1">
+			</xp:pager>
+		</xp:this.facets>
+		<xp:this.data>
+			<xp:dominoView var="view1" viewName="reb"></xp:dominoView>
+		</xp:this.data>
+		<xp:viewColumn columnName="reb" id="viewColumn1">
+			<xp:viewColumnHeader value="reb" id="viewColumnHeader1"></xp:viewColumnHeader>
+		</xp:viewColumn>
+		<xp:viewColumn columnName="Decrement" id="viewColumn2">
+			<xp:viewColumnHeader value="Decrement"
+				id="viewColumnHeader2">
+			</xp:viewColumnHeader>
+		</xp:viewColumn>
+		<xp:viewColumn columnName="$8" id="viewColumn3">
+			<xp:viewColumnHeader value="Pop" id="viewColumnHeader3"></xp:viewColumnHeader>
+		</xp:viewColumn>
+		<xp:viewColumn columnName="Increment" id="viewColumn4">
+			<xp:viewColumnHeader value="Increment"
+				id="viewColumnHeader4">
+			</xp:viewColumnHeader>
+		</xp:viewColumn>
+		<xp:viewColumn columnName="rebRomaji" id="viewColumn5">
+			<xp:viewColumnHeader value="romaji"
+				id="viewColumnHeader5">
+			</xp:viewColumnHeader>
+		</xp:viewColumn>
+		<xp:viewColumn columnName="keb" id="viewColumn6">
+			<xp:viewColumnHeader value="keb" id="viewColumnHeader6"></xp:viewColumnHeader>
+		</xp:viewColumn>
+		<xp:viewColumn columnName="gloss" id="viewColumn7">
+			<xp:viewColumnHeader value="gloss" id="viewColumnHeader7"></xp:viewColumnHeader>
+		</xp:viewColumn>
+		<xp:viewColumn columnName="noteid" id="viewColumn8">
+			<xp:viewColumnHeader value="NoteID"
+				id="viewColumnHeader8">
+			</xp:viewColumnHeader>
+		</xp:viewColumn>
+	</xp:viewPanel>
+	</div>
+	</xp:view>
